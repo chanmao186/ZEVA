@@ -1,0 +1,224 @@
+fileFormatVersion: 2
+guid: eac9893204447bf408beec2f382c35f9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -884579870833014012
+    second: run4_0
+  - first:
+      213: 5463917744861406456
+    second: run4_1
+  - first:
+      213: 2397245059824575680
+    second: run4_2
+  - first:
+      213: 6793335288566205305
+    second: run4_3
+  - first:
+      213: 928189255171677437
+    second: run4_4
+  - first:
+      213: 8483838179910907215
+    second: run4_5
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: run4_0
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 1979
+        width: 1858
+        height: 1751
+      alignment: 9
+      pivot: {x: 0.22823863, y: 0.5000714}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da6dbe4e4d8679c4b9fcca6d0af8e287
+      internalID: -884579870833014012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run4_1
+      rect:
+        serializedVersion: 2
+        x: 2721
+        y: 1982
+        width: 1877
+        height: 1734
+      alignment: 9
+      pivot: {x: 0.22030798, y: 0.50007194}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5074acd5c18db0d449b8a976b37a15c2
+      internalID: 5463917744861406456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run4_2
+      rect:
+        serializedVersion: 2
+        x: 5282
+        y: 2037
+        width: 1888
+        height: 1774
+      alignment: 9
+      pivot: {x: 0.21370529, y: 0.493643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aebd2b0d4420e324db4b47bf9a94bdf7
+      internalID: 2397245059824575680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run4_3
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 61
+        width: 1909
+        height: 1741
+      alignment: 9
+      pivot: {x: 0.21667925, y: 0.49049547}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7334f9b349c5b8c4cb438773efae3fe0
+      internalID: 6793335288566205305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run4_4
+      rect:
+        serializedVersion: 2
+        x: 2898
+        y: 39
+        width: 1394
+        height: 1754
+      alignment: 9
+      pivot: {x: 0.29072788, y: 0.50943506}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b513666e323733c4baa586dda3e2fd5d
+      internalID: 928189255171677437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 62fa9fd9066646340b00771f14593177
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
