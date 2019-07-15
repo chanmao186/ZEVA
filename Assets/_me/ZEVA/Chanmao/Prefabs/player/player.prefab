@@ -22,7 +22,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &130898960539006707
 Transform:
   m_ObjectHideFlags: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
   SliceDistance: 5
   SliceHurt: 10
   Knite: {fileID: 4484991682094134760, guid: 7ec4831fd5a29d24f92d4bc2922bb238, type: 3}
-  SliceNum: 1
-  CoolingTime: 10
+  SliceNum: 3
+  CoolingTime: 1
   IntervalTime: 0.05
   CDImage: {fileID: 0}

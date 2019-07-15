@@ -68,10 +68,9 @@
     <Compile Include="Assets\_me\ZEVA\Chanmao\Script\player\PlayAnimation.cs" />
     <Compile Include="Assets\_me\ZEVA\Chanmao\Script\player\PlayerCnotroller.cs" />
     <Compile Include="Assets\_me\ZEVA\Chanmao\Script\player\PlayerMove.cs" />
+    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\player\zMove.cs" />
+    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\player\ZSlice.cs" />
     <Compile Include="Assets\_me\ZEVA\Chanmao\Script\UI\Drag.cs" />
-    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\UI\NewBehaviourScript.cs" />
-    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\UI\test1.cs" />
-    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\UI\ZSlice.cs" />
     <Compile Include="Assets\ParticlePack\EffectExamples\Misc Effects\Scripts\SpawnEffect.cs" />
     <Compile Include="Assets\ParticlePack\Shared\Ramps\Runtime\RampAsset.cs" />
     <Compile Include="Assets\ParticlePack\Shared\Scripts\AdjustTimeScale.cs" />
@@ -101,34 +100,34 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/unity_project/tx/game/ZEVA/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:/unity_project/tx/git/ZEVA/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProGrids">
-      <HintPath>D:/unity_project/tx/game/ZEVA/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
+      <HintPath>D:/unity_project/tx/git/ZEVA/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProGrids.Editor">
-      <HintPath>D:/unity_project/tx/game/ZEVA/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
+      <HintPath>D:/unity_project/tx/git/ZEVA/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/unity_project/tx/game/ZEVA/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/unity_project/tx/git/ZEVA/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:/unity_project/tx/game/ZEVA/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>D:/unity_project/tx/git/ZEVA/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/unity_project/tx/game/ZEVA/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/unity_project/tx/git/ZEVA/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>D:/unity_project/tx/game/ZEVA/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+      <HintPath>D:/unity_project/tx/git/ZEVA/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>D:/unity_project/tx/game/ZEVA/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+      <HintPath>D:/unity_project/tx/git/ZEVA/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/unity_project/tx/game/ZEVA/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/unity_project/tx/git/ZEVA/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>D:/unity_project/tx/game/ZEVA/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>D:/unity_project/tx/git/ZEVA/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>E:/tool/unity/2019.1.9f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -314,13 +313,13 @@
       <HintPath>E:/tool/unity/2019.1.9f1/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>D:/unity_project/tx/game/ZEVA/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>D:/unity_project/tx/git/ZEVA/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>D:/unity_project/tx/game/ZEVA/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>D:/unity_project/tx/git/ZEVA/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>D:/unity_project/tx/game/ZEVA/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>D:/unity_project/tx/git/ZEVA/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>E:/tool/unity/2019.1.9f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
