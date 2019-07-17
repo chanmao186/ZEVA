@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 6577061321779227249}
   - component: {fileID: 6577061321779227253}
   - component: {fileID: 6577061321779227254}
+  - component: {fileID: 9195267064575846757}
   - component: {fileID: 7418843450421439700}
-  - component: {fileID: 6577061321779227252}
   m_Layer: 0
   m_Name: player1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,6 +152,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &9195267064575846757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6577061321779227250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ebdf5139b2d6b14b9d4f5251d684dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zc: {fileID: 0}
+  Heath: 2
+  Strenth: 1
+  WalkSpeed: 8
+  RunSpeed: 5
+  AttackedTag:
+  - Enemy
+  - Trap
+  - EnemyAbility
+  CastTime: 0.3
+  FirstJumpVeloctiy: 30
+  JumpVeloctiy: 20
+  AttacksFrequence: 2
+  runSpeed: 1.5
 --- !u!114 &7418843450421439700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,28 +195,11 @@ MonoBehaviour:
   SliceHurt: 10
   Knite: {fileID: 4484991682094134760, guid: 7ec4831fd5a29d24f92d4bc2922bb238, type: 3}
   SliceNum: 3
-  CoolingTime: 10
+  CoolingTime: 1
   IntervalTime: 0.05
   CDImage: {fileID: 0}
-  SliceEffection: {fileID: 7888328553784440860}
---- !u!114 &6577061321779227252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6577061321779227250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a11a6c71e909324b9a1cb0e60b2d175, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 8
-  CastTime: 0.3
-  FirstJumpPower: 700
-  JumpPower: 120
-  AttacksFrequence: 2
-  runSpeed: 1.5
+  SliceEffection: {fileID: 8051937814911521106}
+  EndSliceTime: 1.5
 --- !u!1001 &1966165819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -258,27 +267,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7884968052334339527, guid: 3a612a77ec7f42d42a4fdeee8a7bb84a,
+    - target: {fileID: 8051937816305163881, guid: 3a612a77ec7f42d42a4fdeee8a7bb84a,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7884968052334339527, guid: 3a612a77ec7f42d42a4fdeee8a7bb84a,
+    - target: {fileID: 8051372130693946901, guid: 3a612a77ec7f42d42a4fdeee8a7bb84a,
         type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051512336387520651, guid: 3a612a77ec7f42d42a4fdeee8a7bb84a,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051765085935571797, guid: 3a612a77ec7f42d42a4fdeee8a7bb84a,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a612a77ec7f42d42a4fdeee8a7bb84a, type: 3}
---- !u!1 &7888328553784440860 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7888328555578603303, guid: 3a612a77ec7f42d42a4fdeee8a7bb84a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1966165819}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7884968051609725692 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7884968052334339527, guid: 3a612a77ec7f42d42a4fdeee8a7bb84a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1966165819}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8051937814911521106 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8051937816305163881, guid: 3a612a77ec7f42d42a4fdeee8a7bb84a,
     type: 3}
   m_PrefabInstance: {fileID: 1966165819}
   m_PrefabAsset: {fileID: 0}

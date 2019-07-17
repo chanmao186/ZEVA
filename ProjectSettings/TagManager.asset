@@ -5,6 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Shootable
+  - Ground
+  - DragNode
+  - Enemy
+  - Trap
+  - PlayerAbility
+  - EnemyAbility
+  - PlayerAttack
   layers:
   - Default
   - TransparentFX
@@ -14,9 +21,9 @@ TagManager:
   - UI
   - 
   - 
-  - Lighting
   - Ground
-  - Postprocessing
+  - Enemy
+  - Player
   - 
   - 
   - 
@@ -44,4 +51,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: ZAVE
+    uniqueID: 2312093807
     locked: 0

@@ -62,14 +62,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\Abandon\Character.cs" />
+    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\Abandon\EnemyCommon.cs" />
+    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\Abandon\PlayAnimation.cs" />
+    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\Abandon\PlayerMove.cs" />
+    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\Abandon\zMove.cs" />
     <Compile Include="Assets\_me\ZEVA\Chanmao\Script\Camer\CanmeraMove.cs" />
-    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\common\CTime.cs" />
-    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\player\Character.cs" />
-    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\player\PlayAnimation.cs" />
-    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\player\PlayerCnotroller.cs" />
-    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\player\PlayerMove.cs" />
-    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\player\zMove.cs" />
+    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\common\CCharacter.cs" />
+    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\common\ZCheck.cs" />
+    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\common\ZController.cs" />
+    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\common\zHurt.cs" />
+    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\common\ZTime.cs" />
+    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\Enemy\zBat.cs" />
+    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\Enemy\zEnemy.cs" />
+    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\Enemy\zHedgehog.cs" />
+    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\Enemy\zPangolin.cs" />
+    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\player\zPlayer.cs" />
     <Compile Include="Assets\_me\ZEVA\Chanmao\Script\player\ZSlice.cs" />
+    <Compile Include="Assets\_me\ZEVA\Chanmao\Script\PlayerCnotroller.cs" />
     <Compile Include="Assets\_me\ZEVA\Chanmao\Script\UI\Drag.cs" />
     <Compile Include="Assets\ParticlePack\EffectExamples\Misc Effects\Scripts\SpawnEffect.cs" />
     <Compile Include="Assets\ParticlePack\Shared\Ramps\Runtime\RampAsset.cs" />
@@ -311,6 +321,9 @@
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>E:/tool/unity/2019.1.9f1/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>D:/unity_project/tx/git/ZEVA/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>D:/unity_project/tx/git/ZEVA/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
@@ -666,6 +679,20 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>E:/tool/unity/2019.1.9f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="AstarPathfindingProject.csproj">
+      <Project>{6293FDC5-1ABA-32D7-171F-C66AE20BF0DB}</Project>
+      <Name>AstarPathfindingProject</Name>
+    </ProjectReference>
+    <ProjectReference Include="PackageToolsEditor.csproj">
+      <Project>{6A4D3378-2FA5-7982-A778-BEEDEBBACE48}</Project>
+      <Name>PackageToolsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
+      <Project>{905A6601-7816-9F29-2D68-7D5762EB0407}</Project>
+      <Name>AstarPathfindingProjectEditor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

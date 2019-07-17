@@ -552,3 +552,10 @@ D:\unity_project\tx\git\ZEVA\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.
 D:\unity_project\tx\git\ZEVA\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\unity_project\tx\git\ZEVA\obj\Debug\Assembly-CSharp.dll
 D:\unity_project\tx\git\ZEVA\obj\Debug\Assembly-CSharp.pdb
+D:\unity_project\tx\git\ZEVA\Temp\bin\Debug\Pathfinding.Ionic.Zip.Reduced.dll
+D:\unity_project\tx\git\ZEVA\Temp\bin\Debug\Boo.Lang.dll
+D:\unity_project\tx\git\ZEVA\Temp\bin\Debug\UnityEditor.UI.dll
+D:\unity_project\tx\git\ZEVA\Temp\bin\Debug\AstarPathfindingProject.pdb
+D:\unity_project\tx\git\ZEVA\Temp\bin\Debug\PackageToolsEditor.pdb
+D:\unity_project\tx\git\ZEVA\Temp\bin\Debug\AstarPathfindingProjectEditor.pdb
+D:\unity_project\tx\git\ZEVA\Temp\bin\Debug\UnityEditor.UI.xml
