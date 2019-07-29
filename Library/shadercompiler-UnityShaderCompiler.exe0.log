@@ -1,6 +1,2 @@
 Base path: E:/tool/unity/2019.1.9f1/Editor/Data
 Cmd: initializeCompiler
-Cmd: preprocess
-  insize=2619 outsize=463 ok=1
-Cmd: preprocess
-  insize=2191 outsize=817 ok=1

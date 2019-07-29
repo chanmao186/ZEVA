@@ -248,6 +248,7 @@ public class ZSlice : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().simulated = false;
             zm.zTime.StopSchedule(mtime);
+         
             mtime = zm.zTime.ScheduleOnce(() =>
             {
                 Debug.Log("重力恢复");

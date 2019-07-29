@@ -201,7 +201,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -884579870833014012, guid: eac9893204447bf408beec2f382c35f9,
+  m_Sprite: {fileID: -2511973382979172696, guid: eaf8b7b4a1c791148aee664ef90063c1,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -248,8 +248,8 @@ BoxCollider2D:
   m_Offset: {x: 0.51093006, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.22, y: 0.5}
-    oldSize: {x: 18.586182, y: 17.51}
+    pivot: {x: 0.3143074, y: 0.49999994}
+    oldSize: {x: 11.599999, y: 17.875189}
     newSize: {x: 18.586182, y: 17.51}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -301,6 +301,7 @@ MonoBehaviour:
   foot: {fileID: 7522206096379270194}
   isGrivaty: 1
   Grivaty: 20
+  AttackedForce: 0
   CastTime: 0.3
   FirstJumpVeloctiy: 30
   JumpVeloctiy: 20
@@ -321,7 +322,7 @@ MonoBehaviour:
   GameMaster: {fileID: 0}
   SliceDistance: 5
   SliceHurt: 10
-  Knite: {fileID: 4484991682094134760, guid: 7ec4831fd5a29d24f92d4bc2922bb238, type: 3}
+  Knite: {fileID: 4349314836044294111, guid: 599ea5d4574287146b0d5d8db46dc898, type: 3}
   SliceNum: 3
   CoolingTime: 1
   IntervalTime: 0.05

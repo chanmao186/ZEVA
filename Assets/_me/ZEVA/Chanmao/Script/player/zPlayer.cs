@@ -50,7 +50,8 @@ public class zPlayer : CCharacter
         isGround = false;
         _CastTime = 0;
         rs = 1f;
-        
+
+        //Time.timeScale = 0;
         CanJump1 = false;
         CanJump2 = true;
 
@@ -181,9 +182,10 @@ public class zPlayer : CCharacter
             Ani.SetInteger("Attack", AttacksNum);
             AttacksNum = 1;
 
-            Weapon.SetActive(true);
+            ;
             zc.zTime.ScheduleOnce(() => {
-                Weapon.SetActive(false);
+                Weapon.SetActive(true);
+                zc.zTime.ScheduleOnce(() => { Weapon.SetActive(false); },0.15f);                
                 Ani.SetInteger("Attack", 0);
             }, 0.1f);
             _AttacksTime = 0;

@@ -1,0 +1,46 @@
+﻿[
+  {
+    "panelTypeString": "BackMenu",
+    "path": "UIPanel/BackMenuPanel"
+  },
+  {
+    "panelTypeString": "CleanFile",
+    "path": "UIPanel/CleanFilePanel"
+  },
+  {
+    "panelTypeString": "File",
+    "path": "UIPanel/FilePanel"
+  },
+  {
+    "panelTypeString": "KeySetup",
+    "path": "UIPanel/KeySetupPanel"
+  },
+  {
+    "panelTypeString": "Main",
+    "path": "UIPanel/MainPanel"
+  },
+  {
+    "panelTypeString": "Quit",
+    "path": "UIPanel/QuitPanel"
+  },
+  {
+    "panelTypeString": "Setup",
+    "path": "UIPanel/SetupPanel"
+  },
+  {
+    "panelTypeString": "Sound",
+    "path": "UIPanel/SoundPanel"
+  },
+  {
+    "panelTypeString": "Suspend",
+    "path": "UIPanel/SuspendPanel"
+  },
+  {
+    "panelTypeString": "Game",
+    "path": "UIPanel/GamePanel"
+  },
+  {
+    "panelTypeString": "PictureBook",
+    "path": "UIPanel/PictureBookPanel"
+  }
+]

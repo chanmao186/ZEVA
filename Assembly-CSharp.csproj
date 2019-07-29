@@ -96,6 +96,27 @@
     <Compile Include="Assets\_me\ZEVA\Chanmao\Script\PlayerCnotroller.cs" />
     <Compile Include="Assets\_me\ZEVA\Chanmao\Script\TiggerTest.cs" />
     <Compile Include="Assets\_me\ZEVA\Chanmao\Script\UI\Drag.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\Map\EndPoint.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\Map\Spines.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\Map\StoneTablet.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\Map\TestPlayer.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIFrameWork\Base\BasePanel.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIFrameWork\Manager\GameRoot.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIFrameWork\Manager\UIManager.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIFrameWork\Panel\UIPanelInfo.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIFrameWork\Panel\UIPanelType.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIPanel\BackMenuPanel.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIPanel\ChangeCG.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIPanel\CleanFilePanel.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIPanel\FilePanel.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIPanel\GamePanel.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIPanel\KeySetupPanel.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIPanel\MainPanel.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIPanel\PictureBookPanel.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIPanel\QuitPanel.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIPanel\SetupPanel.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIPanel\SoundPanel.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIPanel\SuspendPanel.cs" />
     <None Include="Assets\_me\ZEVA\Chanmao\Free Platform Game Assets\Readme.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/unity_project/tx/git/ZEVA/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
@@ -310,6 +331,9 @@
     <Reference Include="nunit.framework">
       <HintPath>E:/tool/unity/2019.1.9f1/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>D:/unity_project/tx/git/ZEVA/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>D:/unity_project/tx/git/ZEVA/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
@@ -319,8 +343,8 @@
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>D:/unity_project/tx/git/ZEVA/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
-    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
-      <HintPath>D:/unity_project/tx/git/ZEVA/Assets/_me/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+    <Reference Include="LitJSON">
+      <HintPath>D:/unity_project/tx/git/ZEVA/Assets/QingFeng/QingFeng/Plugins/LitJSON.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>E:/tool/unity/2019.1.9f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
