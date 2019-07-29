@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class zPlayer : CCharacter
 {
-    // Start is called before the first frame update
-
-    
-
+    // Start is called before the first frame update    
     [Header("玩家的蓄力时间")]
     public float CastTime = 0.3f;
 
@@ -28,28 +25,35 @@ public class zPlayer : CCharacter
     private float _CastTime;
     //设置一个变量检查玩家什么时候可以跳起
 
-    private bool isGround;
+
     public float runSpeed = 1.5f;
     //奔跑的速度
     private float rs;
     private bool CanJump1;
     private bool CanJump2;
 
+    //private GameObject _Weapon;
     //记录攻击的次数
     private int AttacksNum;
     
     //private Vector2 Veo
+    protected ZSlice zs;
+    //检测玩家是否转身
+    private float checkturn;
+    
     protected override void Start()
     {
         base.Start();
+        zs = GetComponent<ZSlice>();
         AttacksTime = 1 / AttacksFrequence;
+        AttacksTime = AttacksTime < 0.3f ? 0.3f : AttacksTime;
         isGround = false;
         _CastTime = 0;
         rs = 1f;
         
         CanJump1 = false;
         CanJump2 = true;
-        
+
     }
 
     private void Jump()
@@ -95,7 +99,12 @@ public class zPlayer : CCharacter
             Ani.SetFloat("Speed", 1f);
             // 获取当前玩家要前进的方向
             float d = i > 0 ? 1 : -1;
-
+            if (checkturn != d)
+            {
+                //如果玩具转向的话，刀刃立即消失
+                Weapon.SetActive(false);
+            }
+            checkturn = d;
             transform.Translate(Vector2.right * WalkSpeed * rs * d * Time.deltaTime, Space.World);
 
             Scale.x = xScale * -d;
@@ -109,31 +118,12 @@ public class zPlayer : CCharacter
         }
     }
 
-    /// <summary>
-    /// 检测玩家周围的障碍物
-    /// </summary>
-    /// <param name="direction">方向</param>
-    /// <param name="distance">距离</param>
-    /// <returns></returns>
-    private bool GroundCheck(Vector2 direction, float distance)
+    bool HeadCheck()
     {
-        return zc.zCheck.Collider2DCheck(new Vector2(transform.position.x, transform.position.y), direction,distance,"Ground");
-        //RaycastHit2D[] hit = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y), new Vector2(transform.position.x, transform.position.y));
-        //foreach (RaycastHit2D e in hit)
-        //{
-        //    if (e.collider.CompareTag("Ground"))
-        //    {
-        //        return true;
-        //    }
-
-        //}
-        //return false;
+        return zc.zCheck.Collider2DCheck(new Vector2(Head.position.x, Head.position.y), Vector2.up, 0.5f, "Ground", "Ground");
     }
-
-    private void IsGroundUpdate()
+    private void CanJumpUpdate()
     {
-
-        isGround = GroundCheck(Vector2.down, 1f);
         if (!CanJump1)
         {
             CanJump1 = isGround;
@@ -141,7 +131,7 @@ public class zPlayer : CCharacter
         else
         {
             //检测头顶上是否有物体
-            CanJump1 = !GroundCheck(Vector2.up, 1f);
+            CanJump1 = !HeadCheck();
         }
     }
 
@@ -172,7 +162,7 @@ public class zPlayer : CCharacter
         {
             Scale.x = -Scale.x;
             transform.localScale = Scale;
-        }
+        }       
         //待用代码，计算角色360攻击的动画，需要时启用
         //angle = ms.y > transform.position.y ? angle : -angle;
         //Debug.Log("当前的角度为：" + angle);
@@ -181,27 +171,28 @@ public class zPlayer : CCharacter
 
     private void Attack()
     {
-        if (Input.GetMouseButtonDown(0))
+        if(_AttacksTime<AttacksTime)
+           _AttacksTime += Time.deltaTime;
+
+        if (Input.GetMouseButtonDown(0)&& _AttacksTime >= AttacksTime)
         {
+            
             SeekAttackDirection();
+            Ani.SetInteger("Attack", AttacksNum);
             AttacksNum = 1;
+
+            Weapon.SetActive(true);
+            zc.zTime.ScheduleOnce(() => {
+                Weapon.SetActive(false);
+                Ani.SetInteger("Attack", 0);
+            }, 0.1f);
+            _AttacksTime = 0;
         }
         else if (Input.GetMouseButton(0))
         {
-            SeekAttackDirection();
-            _AttacksTime += Time.deltaTime;
-            AttacksNum = 1;
-            if (_AttacksTime > AttacksTime)
-            {
-                _AttacksTime = 0;
-                AttacksNum = 2;
-            }
-        }
-        else
-        {
-            AttacksNum = 0;
-        }
-        Ani.SetInteger("Attack", AttacksNum);
+            
+        }       
+        
         //Debug.Log(AttacksNum);
     }
 
@@ -220,8 +211,36 @@ public class zPlayer : CCharacter
     void Update()
     {
         Jump();
+        ZSlice();
         Attack();
-        IsGroundUpdate();
+        isGroundUpdate();
+        CanJumpUpdate();
         PlayJumpAimation();
+    }
+
+    /// <summary>
+    /// 鼠标开始执行切割的动作
+    /// </summary>
+    private void ZSlice()
+    {
+        if (zs.GetCurrentCoolTime() > 0) return;
+        if (Input.GetButton("Space"))
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                zs.SetSlicePoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                zs.CheckStart();
+            }
+        }
+        else if (Input.GetButtonUp("Space"))
+        {
+            zs.SliceStart();
+        }
+        //确保释放技能在冷却范围内
+        else if (Input.GetMouseButton(1))
+        {
+            zs.SetSlicePoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            zs.SliceStart();
+        }
     }
 }

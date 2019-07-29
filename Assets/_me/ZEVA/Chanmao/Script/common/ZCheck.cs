@@ -18,12 +18,14 @@ public class ZCheck : MonoBehaviour
     /// <param name="distance">距离</param>
     /// <param name="tag">要检测物体的标签</param>
     /// <returns></returns>
-    public bool Collider2DCheck(Vector2 pos, Vector2 direction, float distance, string tag)
+    public bool Collider2DCheck(Vector2 pos, Vector2 direction, float distance, string tag,string layerName)
     {
 
-        RaycastHit2D[] hit = Physics2D.RaycastAll(pos, direction, distance);
+        RaycastHit2D[] hit = Physics2D.RaycastAll(pos, direction, distance, 1<<LayerMask.NameToLayer(layerName));
+        
         foreach (RaycastHit2D e in hit)
         {
+            //Debug.Log(e.collider.tag);
             if (e.collider.CompareTag(tag))
             {
                 return true;

@@ -1,0 +1,317 @@
+fileFormatVersion: 2
+guid: 41267c8acffa7cd47ba5e26c06b8e5b4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4543561984648962594
+    second: zPangolin_JumpOut_0
+  - first:
+      213: -8112278517146683348
+    second: zPangolin_JumpOut_1
+  - first:
+      213: 4902139796892313829
+    second: zPangolin_JumpOut_2
+  - first:
+      213: 6906839633944206611
+    second: zPangolin_JumpOut_3
+  - first:
+      213: 9191618300112546306
+    second: zPangolin_JumpOut_4
+  - first:
+      213: 8028553153688026228
+    second: zPangolin_JumpOut_5
+  - first:
+      213: 5994148645330244228
+    second: zPangolin_JumpOut_6
+  - first:
+      213: -7819034572650126072
+    second: zPangolin_JumpOut_7
+  - first:
+      213: -9162941370899835180
+    second: zPangolin_JumpOut_8
+  - first:
+      213: -9200630029666248380
+    second: zPangolin_JumpOut_9
+  - first:
+      213: -4688007661663051664
+    second: zPangolin_JumpOut_10
+  - first:
+      213: 4165776707902056717
+    second: zPangolin_JumpOut_11
+  - first:
+      213: 1709220571784924502
+    second: zPangolin_JumpOut_12
+  - first:
+      213: -339728554768538369
+    second: zPangolin_JumpOut_13
+  - first:
+      213: 2968349017291198685
+    second: zPangolin_JumpOut_14
+  - first:
+      213: 8644728384984720282
+    second: zPangolin_JumpOut_15
+  - first:
+      213: -6867535935721126240
+    second: zPangolin_JumpOut_16
+  - first:
+      213: -1000435223903237619
+    second: zPangolin_JumpOut_17
+  - first:
+      213: 604736861510197486
+    second: zPangolin_JumpOut_18
+  - first:
+      213: -3679258114419444285
+    second: zPangolin_JumpOut_20
+  - first:
+      213: 7854305508739341315
+    second: zPangolin_JumpOut_21
+  - first:
+      213: 1928897950970859872
+    second: zPangolin_JumpOut_19
+  - first:
+      213: 6754522345778127807
+    second: zPangolin_JumpOut_22
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: zPangolin_JumpOut_14
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 166
+        width: 763
+        height: 1034
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75a932b9f7e29e346b6029faaa43dbb4
+      internalID: 2968349017291198685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zPangolin_JumpOut_15
+      rect:
+        serializedVersion: 2
+        x: 1902
+        y: 339
+        width: 880
+        height: 800
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 352157b1c5418fd42b2fc9dc6f7b6d95
+      internalID: 8644728384984720282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zPangolin_JumpOut_16
+      rect:
+        serializedVersion: 2
+        x: 3404
+        y: 290
+        width: 867
+        height: 846
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 551a3e392eeaf7e40bff7c62f6a7e932
+      internalID: -6867535935721126240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zPangolin_JumpOut_20
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 2041
+        width: 1050
+        height: 509
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9b46950e937e7b4f9135667564a49a1
+      internalID: -3679258114419444285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zPangolin_JumpOut_21
+      rect:
+        serializedVersion: 2
+        x: 1541
+        y: 2019
+        width: 1255
+        height: 559
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8826bcce61ff8a04fb2dfa103649a2fc
+      internalID: 7854305508739341315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zPangolin_JumpOut_19
+      rect:
+        serializedVersion: 2
+        x: 3131
+        y: 1912
+        width: 1353
+        height: 637
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8aa03d871863fc4b9af640aad3076f9
+      internalID: 1928897950970859872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zPangolin_JumpOut_22
+      rect:
+        serializedVersion: 2
+        x: 4735
+        y: 1892
+        width: 1414
+        height: 744
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02998cb6725681648bdd0858ac7582c0
+      internalID: 6754522345778127807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 605521765648b484fbcd6ad68a1f5f2f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

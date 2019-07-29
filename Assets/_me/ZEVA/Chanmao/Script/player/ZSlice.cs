@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class ZSlice : MonoBehaviour
 {
+    
     [Header("游戏管理器的节点")]
     public GameObject GameMaster;
     // Start is called before the first frame update
 
-    [Header("切割的距离")]
+    [Header("切割的最大距离")]
     public float SliceDistance = 5.0f;
 
     [Header("斩击造成的伤害")]
@@ -27,17 +28,19 @@ public class ZSlice : MonoBehaviour
     [Header("进行多段斩击的间隔时间")]
     public float IntervalTime = 0.05f;
 
-    [Header("玩家的斩击不可穿越部分障碍物")]
-    private bool IsThrounGround = true;
+    [Header("斩击不可穿越部分障碍物")]
+    public bool IsThrounGround = true;
 
-    [Header("玩家斩击技能的冷却")]
+    [Header("斩击技能的冷却")]
     public Image CDImage;
 
-    [Header("斩击后，玩家身上的特效")]
+    [Header("斩击后，角色身上的特效")]
     public ParticleSystem SliceEffection;
 
     [Header("玩家完成动作后的滞留时间")]
     public float EndSliceTime = 1f;
+
+    Rigidbody2D r2;
     private float _CoolingTime = 0;
 
     private zPlayer zp;
@@ -67,23 +70,37 @@ public class ZSlice : MonoBehaviour
 
     private ZController zm;
 
+    //斩击后的回调函数
+    private Func SliceCallBack;
     private float xScale;
     private Vector3 localScale;
+    private Coroutine mtime;
 
+    public float GetCurrentCoolTime()
+    {
+        return _CoolingTime;
+    }
     void Start()
     {
+        mtime = null;
         localScale = transform.localScale;
         xScale = localScale.x;
         zm = GameMaster.GetComponent<ZController>();
         zp = GetComponent<zPlayer>();
         PlayerLength = GetComponent<SpriteRenderer>().size.x * transform.localScale.x;
-        _kniteLength = 5.45f;
+        _kniteLength = 2.13f;
         Debug.Log("斩击的默认长度为：" + _kniteLength);
         MousePos = new Vector2[10];
         _SliceNum = 0;
+        r2 = GetComponent<Rigidbody2D>();
         PlayerPos = new Vector2(transform.position.x, transform.position.y);
     }
 
+    public void SetSlicePoint(Vector2 point)
+    {
+        MousePos[_SliceNum] = point;
+        _SliceNum++;
+    }
     /// <summary>
     /// 鼠标开始执行切割的动作
     /// </summary>
@@ -115,16 +132,24 @@ public class ZSlice : MonoBehaviour
         }
     }
 
+    public void CheckStart()
+    {
+        if (SliceNum == _SliceNum)
+        {
+            SliceStart();
+        }
+    }
     /// <summary>
     /// 开始进行斩击
     /// </summary>
-    private void SliceStart()
+    public void SliceStart()
     {
         if (_SliceNum == 0) return;
         //技能开始冷却
         _CoolingTime = CoolingTime;
         int i = 0;
-        zm.zTime.Schedule(() => {
+        zm.zTime.Schedule(() =>
+        {
             ///进行下列判断的功能是：
             ///再鼠标到玩家的距离，玩家到障碍物的距离，默认的切割距离间，获取一个最小值
             PlayerPos = new Vector2(transform.position.x, transform.position.y);
@@ -141,7 +166,7 @@ public class ZSlice : MonoBehaviour
                     if (element.collider.CompareTag("Ground"))
                     {
                         float d = element.distance - PlayerLength * 0.5f;
-                        _SliceDistance = _SliceDistance <  d? _SliceDistance : d;
+                        _SliceDistance = _SliceDistance < d ? _SliceDistance : d;
                         break;
                     }
                 }
@@ -166,6 +191,7 @@ public class ZSlice : MonoBehaviour
         //获得最后一次斩击
         if ((SliceNum + 1) == _SliceNum)
         {
+            if(SliceEffection)
             PlaySliceEffections();
             unlength = PlayerLength * 0.5f;
             _SliceNum = 0;
@@ -174,10 +200,10 @@ public class ZSlice : MonoBehaviour
         _knite = Instantiate(Knite, new Vector2(transform.position.x, transform.position.y), q);
 
         //根据距离改变斩击的长度
-        float scale = (_SliceDistance- unlength) / _kniteLength;
+        float scale = (_SliceDistance - unlength) / _kniteLength;
         scale = scale < 0.1f ? 0.1f : scale;
         _knite.transform.localScale = new Vector2(scale, 1);
-        Destroy(_knite, 0.5f);
+        Destroy(_knite, 0.4f);
     }
 
     //技能冷却时间更新
@@ -185,13 +211,15 @@ public class ZSlice : MonoBehaviour
     {
         zm.zTime.TimeUpdate(ref _CoolingTime);
         //Debug.Log(_CoolingTime);
-        CDImage.fillAmount = _CoolingTime / CoolingTime;
+        if (CDImage)
+            CDImage.fillAmount = _CoolingTime / CoolingTime;
     }
 
     //回合技能冷却更新
     private void IntervalTimeUpdate()
     {
-        zm.zTime.TimeUpdate(ref _IntervalTime, () => {
+        zm.zTime.TimeUpdate(ref _IntervalTime, () =>
+        {
             _SliceNum = 0;
             _CoolingTime = CoolingTime;
         });
@@ -204,21 +232,29 @@ public class ZSlice : MonoBehaviour
     {
         //玩家进行斩击后停顿一段时间
         Debug.Log("重力消失");
-        GetComponent<Rigidbody2D>().simulated = false;
+
 
         Vector2 move = SliceDirection * _SliceDistance;
         //增加判断，防止玩家移动到地下
-        move.y = zp.GetIsGround()&&move.y<0? 0: move.y;
+        if(zp)
+        move.y = zp.GetIsGround() && move.y < 0 ? 0 : move.y;
 
         transform.Translate(move);
 
         localScale.x = move.x < 0 ? xScale : -xScale;
         transform.localScale = localScale;
-        zm.zTime.ScheduleOnce(() =>
+        //停止上一帧的延时函数
+        if (r2)
         {
-            Debug.Log("重力恢复");
-            GetComponent<Rigidbody2D>().simulated = true;
-        }, EndSliceTime);
+            GetComponent<Rigidbody2D>().simulated = false;
+            zm.zTime.StopSchedule(mtime);
+            mtime = zm.zTime.ScheduleOnce(() =>
+            {
+                Debug.Log("重力恢复");
+
+                GetComponent<Rigidbody2D>().simulated = true;
+            }, EndSliceTime);
+        }
     }
 
     /// <summary>
@@ -228,7 +264,7 @@ public class ZSlice : MonoBehaviour
     {
         //停止上一个动作
         SliceEffection.Stop();
-        
+
         SliceEffection.Play();
     }
     // Update is called once per frame
