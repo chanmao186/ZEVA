@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class MainPanel : BasePanel
 {
-    private CanvasGroup canvasGroup;
+    private CanvasGroup canvasGroup;        
+    public  bool isDisPlay=false ;          //面板是否显示
+    public float  AnimSpeed = 1;            //动画播放时间
 
     public void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
+        canvasGroup.alpha = 0;
     }
 
     /// <summary>
@@ -28,14 +32,31 @@ public class MainPanel : BasePanel
         UIManager.Instance.PanelPush(panelType);
     }
 
+
+    /// <summary>
+    /// 面板显示的动画效果
+    /// </summary>
+    private void PanelAnim()
+    {
+        isDisPlay = !isDisPlay;
+        if(isDisPlay)
+        {
+            Tween tween = canvasGroup.DOFade(1, AnimSpeed );
+            tween.OnComplete(PanelDisplay);
+        }else
+        {
+            PanelHide();
+        }
+    }
+
     /// <summary>
     /// 当前面板显示
     /// </summary>
     private void PanelDisplay()
     {
         canvasGroup.blocksRaycasts = true;
-        canvasGroup.alpha = 1;
     }
+
     /// <summary>
     /// 当前面板隐藏
     /// </summary>
@@ -45,29 +66,31 @@ public class MainPanel : BasePanel
         canvasGroup.alpha = 0;
     }
 
+    //面板基本状态
     public override void OnEnter()
     {
-        PanelDisplay();
-    }
-    public override void OnExit()
-    {
-        PanelHide();
-    }
-    public override void OnPause()
-    {
-        PanelHide();
+        PanelAnim();
     }
     public override void OnResume()
     {
-        PanelDisplay();
+        PanelAnim();
     }
+    public override void OnExit()
+    {
+        PanelAnim();
+    }
+    public override void OnPause()
+    {
+        PanelAnim();
+    }
+   
 
     /// <summary>
     /// 进入游戏加载场景
     /// </summary>
     public void  StartGame()
     {
-        Debug.Log("进入游戏");
+        //TODO delete
     }
     
 }
