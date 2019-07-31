@@ -40,6 +40,9 @@ public class ZSlice : MonoBehaviour
     [Header("玩家完成动作后的滞留时间")]
     public float EndSliceTime = 1f;
 
+    [Header("斩击的音效")]
+    public AudioClip SliceSFX;
+
     Rigidbody2D r2;
     private float _CoolingTime = 0;
 

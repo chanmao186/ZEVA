@@ -263,6 +263,7 @@ MonoBehaviour:
   AttackedTag:
   - Player
   Hurt: 1
+  isDestroy: 0
 --- !u!61 &3213458164024295010
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -455,15 +456,12 @@ MonoBehaviour:
   Strenth: 1
   WalkSpeed: 3
   RunSpeed: 2
-  AttackedTag:
-  - Trap
-  - PlayerAbility
-  - PlayerAttack
   Weapon: {fileID: 0}
   Head: {fileID: 5291855905661105955}
   foot: {fileID: 5291855905950483963}
   isGrivaty: 1
   Grivaty: 9
+  AttackedForce: 0
   DestroyTime: 3
   Player: {fileID: 0}
   AbilityTime: 1
@@ -474,6 +472,7 @@ MonoBehaviour:
   - {fileID: 5291855905149099367}
   - {fileID: 5291855906184225494}
   DefaultState: 1
+  isReturnDefault: 1
   Thorn: {fileID: 0}
   ThornHeight: 5
 --- !u!95 &5291855906785177531
@@ -505,7 +504,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

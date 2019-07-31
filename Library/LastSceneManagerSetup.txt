@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Chanmao/Chanmao/Sence/Demo 1.unity
+- path: Assets/QingFeng/QingFeng/Scenes/Card_2_Map_1.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

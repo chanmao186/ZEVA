@@ -263,6 +263,7 @@ MonoBehaviour:
   AttackedTag:
   - Player
   Hurt: 1
+  isDestroy: 0
 --- !u!61 &910346986530256333
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -426,7 +427,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 2614606867367668409, guid: a2afdeaf576ab6f41a5cf85aa04e7268,
+  m_Sprite: {fileID: 2026106653598647378, guid: 71bffe5d507aaa44690899f7828b379c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -454,8 +455,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.8100004, y: 10.196364}
+    pivot: {x: 0.3353961, y: 0.49001426}
+    oldSize: {x: 7.4400005, y: 10.222879}
     newSize: {x: 9.38, y: 8.0341015}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -500,15 +501,16 @@ MonoBehaviour:
   Strenth: 1
   WalkSpeed: 5
   RunSpeed: 20
-  AttackedTag: []
   Weapon: {fileID: 0}
   Head: {fileID: 0}
   foot: {fileID: 0}
   isGrivaty: 1
   Grivaty: 9
+  AttackedForce: 0
   DestroyTime: 3
   Player: {fileID: 0}
   AbilityTime: 0.5
+  AbilityNumber: 3
   PreAbilityTime: 0.3
   HideTime: 1
   FadeInTime: 1
@@ -522,6 +524,9 @@ MonoBehaviour:
   StartTime: 0
   ToPlayerDistance: 5
   Hight: 5
+  A3Effection: {fileID: 0}
+  A3IdleTime: 0.3
+  SwrodPoint: {fileID: 0}
 --- !u!50 &812077722896541180
 Rigidbody2D:
   serializedVersion: 4
