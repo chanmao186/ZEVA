@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum PlayWay
 {
-    Enter,Exit
+    Enter, Exit
 }
 public class zPaangolin_Effection : MonoBehaviour
 {
@@ -14,7 +14,7 @@ public class zPaangolin_Effection : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ground"))
+        if (collision.CompareTag("Ground")&&playWay == PlayWay.Enter)
         {
             EffectionPlay();
         }
@@ -22,18 +22,17 @@ public class zPaangolin_Effection : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ground"))
+        if (collision.CompareTag("Ground")&&playWay == PlayWay.Exit)
         {
             EffectionPlay();
         }
     }
     private void EffectionPlay()
     {
-        if(playWay == PlayWay.Enter)
-        {
-            Effection.transform.position = transform.position;
-            Effection.Play();
-        }     
+        Effection.transform.position = transform.position;
+        Effection.Play();
+        //运行完成后将该组件关闭
+        gameObject.SetActive(false);
     }
     // Update is called once per frame
 }

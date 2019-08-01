@@ -2,13 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CCharacter : MonoBehaviour
+public class CCharacter : zItem
 {
-    [Header("游戏管理器")]
-    public ZController zc;
-    // Start is called before the first frame update
-    [Header("生命值")]
-    public float Heath = 2;
+    
 
     [Header("体力值")]
     public float Strenth = 1;
@@ -32,10 +28,8 @@ public class CCharacter : MonoBehaviour
     [Header("怪物受到的重力影响")]
     public float Grivaty = 9.8f;
 
-    [Header("受到伤害时被弹开的力")]
-    public float AttackedForce = 0;
-    //小怪的动态生命值
-    protected float _Heath;
+    
+    
     protected float _Strenth;
     protected bool isGround;
     protected Vector3 Scale;
@@ -50,22 +44,19 @@ public class CCharacter : MonoBehaviour
     protected int Direction;
     protected float currentYSpeed;
     protected float checkDistance;
-    protected Rigidbody2D _rigidbody2D;
+    
 
-    protected virtual void Start()
+    protected override void Start()
     {
-        if (!zc)
-        {
-            zc = GameObject.Find("GameManager").GetComponent<ZController>();
-        }
-        _rigidbody2D = GetComponent<Rigidbody2D>();
+        base.Start();
+        
         _time = null;
         checkDistance = GetComponent<SpriteRenderer>().size.x * transform.localScale.x * 0.5f;
         Ani = GetComponent<Animator>();
         Scale = transform.localScale;
         xScale = Scale.x;
         //Debug.Log("CCharater执行");
-        _Heath = Heath;
+        
         coll = GetComponent<Collider2D>();
         sprite = GetComponent<SpriteRenderer>();
         currentYSpeed = 0;
@@ -73,26 +64,7 @@ public class CCharacter : MonoBehaviour
 
 
 
-    /// <summary>
-    /// 小怪物被攻击
-    /// </summary>
-    /// <param name="Hurt">受到的伤害值</param>
-    public void Attacked(float Hurt, Transform AttackPoint)
-    {
-        Debug.Log("受到" + Hurt + "伤害");
-        //播放被攻击的效果
-        AttackedEffection();
-        Vector2 de = AttackPoint.position - transform.position;
-
-        if(AttackedForce>0)
-        _rigidbody2D.AddForce(de * AttackedForce);
-
-        _Heath -= Hurt;
-        if (_Heath < 0)
-        {
-            Death();
-        }
-    }
+    
     //private void OnTriggerEnter2D(Collider2D collision)
     //{
     //    foreach (string tag in AttackedTag)
@@ -124,22 +96,12 @@ public class CCharacter : MonoBehaviour
     //    }
     //}
 
-    public virtual void AttackedEffection()
-    {
-        Debug.Log("玩家被攻击了");
-    }
+   
 
     /// <summary>
     /// 死亡的动画
     /// </summary>
-    public virtual void DeathEffection() { }
-    /// <summary>
-    /// 小怪物死亡
-    /// </summary>
-    public virtual void Death()
-    {
-        DeathEffection();
-    }
+   
 
     /// <summary>
     /// 将物体移动到指定的位置

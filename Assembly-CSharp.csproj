@@ -73,6 +73,7 @@
     <Compile Include="Assets\Chanmao\Chanmao\Script\common\zColor.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\common\ZController.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\common\zHurt.cs" />
+    <Compile Include="Assets\Chanmao\Chanmao\Script\common\zItem.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\common\zMoveTo.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\common\ZTime.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBase\zBoss.cs" />
@@ -127,7 +128,7 @@
     <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIPanel\SuspendPanel.cs" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
     <None Include="Assets\Chanmao\Chanmao\SpriteBlur.shader" />
-    <None Include="Assets\Chanmao\Chanmao\Free Platform Game Assets\Readme.txt" />
+    <None Include="Assets\Chanmao\Free Platform Game Assets\Readme.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/unity_project/tx/git/ZEVA/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

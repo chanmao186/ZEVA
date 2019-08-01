@@ -24,6 +24,7 @@ public class zSelf : zBoss
     protected override void Start()
     {
         base.Start();
+        //寻找场景里的主摄像机
         Carmera = GameObject.Find("Main Camera");
     }
 

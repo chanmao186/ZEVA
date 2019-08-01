@@ -9,6 +9,9 @@ public class zMashterA2 : MonoBehaviour
 
     [Header("飞行之后，多长时间内自动销毁")]
     public float destroyTime = 2;
+
+    [Header("撞到哪些标签后物体要停下")]
+    public string[] StopTag;
     private float _destroyTime = 0;
     public bool Rush1 = false;
     // Start is called before the first frame update
@@ -16,8 +19,19 @@ public class zMashterA2 : MonoBehaviour
     private void Start()
     {
         Ani = GetComponent<Animator>();
+        if(Ani)
         Ani.SetTrigger("Show");
         _destroyTime = 0;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        foreach(string tag in StopTag)
+        {
+            if (collision.transform.CompareTag(tag)) {
+                Rush1 = false;
+            }
+        }
     }
     public void Rush()
     {

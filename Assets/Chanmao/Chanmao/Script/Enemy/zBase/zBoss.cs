@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class zBoss : zEnemy
 {
+    [Header("是否保持释放的技能不重复")]
+    public bool AvoidSameAbility = false;
+
     [Header("boss可以释放的技能的数量")]
     public int AbilityNumber = 3;
     [Header("闪现后，释放技能前的准备时间")]
@@ -34,12 +37,15 @@ public class zBoss : zEnemy
     public float StartTime = 1;
     protected Vector2 BossPos;
 
+    protected int lastA;
+    protected int currentA;
     protected float PosY;
     //public Transform HidePoint;
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
+        lastA = 100;
         BossPos = transform.position;
         PosY = BossPos.y;
         zc.zTime.ScheduleOnce(AbilityEnd, StartTime);
@@ -77,8 +83,18 @@ public class zBoss : zEnemy
     /// </summary>
     protected virtual void AbilityTranForm()
     {
+        currentA = Random.Range(0, AbilityNumber);
+        if (AvoidSameAbility)
+        {
+            while (lastA == currentA)
+            {
+                currentA = Random.Range(0, AbilityNumber);
+            }
+            lastA = currentA;
+        }        
+        //Random.Range(0, AbilityNumber)
         //随机释放一个技能Random.Range(0, AbilityNumber)
-        switch (Random.Range(0, AbilityNumber))
+        switch (currentA)
         {
             case 0:
                 Ability1();

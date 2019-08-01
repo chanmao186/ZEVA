@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class zPangolin : zGroundEnemy
 {
+    [Header("进入洞穴的粒子效果释放的检测点")]
+    public GameObject EnterCheck;
+    [Header("跳出洞穴的粒子效果释放的检测点")]
+    public GameObject ExiterCheck;
     //[Header("跳入洞穴的特效")]
     //public ParticleSystem effection;
     protected bool CanChangState;
@@ -13,6 +17,7 @@ public class zPangolin : zGroundEnemy
     protected override void Start()
     {
         base.Start();
+        
         CanChangState = true;
         c2 = GetComponent<Collider2D>();
         sr = GetComponent<SpriteRenderer>();
@@ -39,19 +44,31 @@ public class zPangolin : zGroundEnemy
         //停止走路的动作
         Ani.SetFloat("Speed", 0);
         //穿山甲跳入地下
-        pJump(null,()=> {
+        pJump(()=> {
+            //开启跳跃的检测
+            Debug.Log("激活跳入洞穴的碰撞检测");
+            EnterCheck.SetActive(true);
+        },()=> {
             //停止播放跳入动作
             Ani.SetBool("JumpIn", false);
             //sr.enabled = false;
-            //一段时候后准备跳出
-             _time = zc.zTime.ScheduleOnce(() => {
+
+            
+            //一段时间后准备跳出           
+            _time = zc.zTime.ScheduleOnce(() => {
                 transform.position = new Vector2(Player.position.x, transform.position.y);
                 //effection.transform.position = new Vector2(Player.position.x, effection.transform.position.y);
                 //跳出点开始播放动画
                 _time = zc.zTime.ScheduleOnce(() => {
                     Ani.SetInteger("JumpOut", 1);
                     //effection.Play();
-                    pJump(() => {
+
+
+                    //激活跳出洞穴的碰撞检测
+                    Debug.Log("激活跳出洞穴的碰撞检测");
+                    ExiterCheck.SetActive(true);
+                    //执行跳出洞穴的动作
+                    pJump(() => {                       
                         Ani.SetInteger("JumpOut", 2);
                     }, () => {
                         Ani.SetInteger("JumpOut", 3);

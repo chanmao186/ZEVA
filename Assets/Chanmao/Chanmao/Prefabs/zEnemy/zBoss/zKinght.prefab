@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &286915376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 286915377}
+  m_Layer: 0
+  m_Name: SwordThrowPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &286915377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286915376}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.2666662, y: -4.396666, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 812077722896541179}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1505525978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1505525979}
+  m_Layer: 0
+  m_Name: A2Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1505525979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505525978}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.1999993, y: -2.3999999, z: -6.1899385}
+  m_LocalScale: {x: -3.333333, y: 3.333333, z: 1}
+  m_Children: []
+  m_Father: {fileID: 812077722896541179}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &812077721261512480
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,6 +447,8 @@ Transform:
   m_Children:
   - {fileID: 812077722470309215}
   - {fileID: 812077723007326353}
+  - {fileID: 286915377}
+  - {fileID: 1505525979}
   m_Father: {fileID: 812077722168761985}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -427,7 +489,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 2026106653598647378, guid: 71bffe5d507aaa44690899f7828b379c,
+  m_Sprite: {fileID: 8793160908468363729, guid: 71bffe5d507aaa44690899f7828b379c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -455,8 +517,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.3353961, y: 0.49001426}
-    oldSize: {x: 7.4400005, y: 10.222879}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 7.770001, y: 10.753029}
     newSize: {x: 9.38, y: 8.0341015}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -501,7 +563,7 @@ MonoBehaviour:
   Strenth: 1
   WalkSpeed: 5
   RunSpeed: 20
-  Weapon: {fileID: 0}
+  Weapon: {fileID: 1618022299386908737, guid: cd4e2d96e18fae84089df08b6a484d59, type: 3}
   Head: {fileID: 0}
   foot: {fileID: 0}
   isGrivaty: 1
@@ -522,11 +584,14 @@ MonoBehaviour:
   RightBoundary: {fileID: 812077722432170128}
   HidePoint: {fileID: 812077722053330322}
   StartTime: 0
+  A2Point: {fileID: 1505525979}
+  A2Prefabs: {fileID: 7291462118957795042, guid: ecf8edcae26038f4eac25f366a9322f2,
+    type: 3}
   ToPlayerDistance: 5
   Hight: 5
   A3Effection: {fileID: 0}
   A3IdleTime: 0.3
-  SwrodPoint: {fileID: 0}
+  SwrodPoint: {fileID: 286915377}
 --- !u!50 &812077722896541180
 Rigidbody2D:
   serializedVersion: 4

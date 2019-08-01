@@ -37,6 +37,7 @@ public class zEnemy : CCharacter
         IsCheckState = true;
         //isCanChangState= true;
         Direction = 1;
+        Player = FindObjectOfType<zPlayer>().transform;
 
         //Debug.Log("zEnemy执行");
     }
