@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
+
 public class SuspendPanel : BasePanel 
 {
     private CanvasGroup canvasGroup;
@@ -13,6 +15,7 @@ public class SuspendPanel : BasePanel
         canvasGroup = GetComponent<CanvasGroup>();
         canvasGroup.alpha = 0;
     }
+
 
     /// <summary>
     /// 当前面板关闭

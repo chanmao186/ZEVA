@@ -37,7 +37,7 @@ public class zPangolin : zGroundEnemy
         //IsCheckState = false;
         //将状态转换器终止
         //关闭重力系统
-        isGrivaty = false;
+        //isGrivaty = false;
         //CanChangState = false;
         //先确定要跳跃的方向
         Ani.SetBool("JumpIn", true);
@@ -62,7 +62,6 @@ public class zPangolin : zGroundEnemy
                 _time = zc.zTime.ScheduleOnce(() => {
                     Ani.SetInteger("JumpOut", 1);
                     //effection.Play();
-
 
                     //激活跳出洞穴的碰撞检测
                     Debug.Log("激活跳出洞穴的碰撞检测");

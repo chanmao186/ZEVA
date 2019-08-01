@@ -8,30 +8,36 @@ public class ChangeCG : MonoBehaviour
 {
     public Transform player;
     public Transform startPoint;
-    public List<Sprite> sprites;
+    public List<GameObject> sprites;
     public int index=0;
-    public GameObject   image;
+    public List<string> tips;
+    public StoneTablet BG;
 
+    public void Awake()
+    {
+        BG = GameObject.Find("BG").GetComponent<StoneTablet>();
+        BG.tipStr = tips[index];
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.tag == "Player"&&index <=2)
         {
             //TODO 动画
             player.position = startPoint.position;
-            index++;
-            image.GetComponent<SpriteRenderer>().sprite = sprites[index];
+            sprites[index].SetActive(false); 
         }
-        if (index >= 4)
+        if (collision.collider.tag == "Player" && index >= 3)
         {
-            Debug.Log(1);
             SceneManager.LoadScene("Card_2_Map_4");
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Player" && index > 2)
+        if (collision.collider.tag == "Player" )
         {
             index++;
+            BG.tipStr = tips[index];
+            sprites[index].SetActive(true );
         }
     }
 }

@@ -16,12 +16,19 @@ public class zPlayer : CCharacter
     [Header("持续跳跃的速度")]
     public float JumpVeloctiy = 1;
 
+    [Header("被攻击后的无敌时间")]
+    public float InvincibleTime = 0.5f;
+
     [Header("攻击的频率(持续按照攻击键，一秒攻击几次)")]
     public float AttacksFrequence = 2;
 
     [Header("玩家是否可以操纵角色")]
     public bool isOperation = true;
 
+    [Header("主角是否可以按R读取数据")]
+    public bool CanRead = false;
+
+    
     private float AttacksTime;
     private float _AttacksTime = 0;
 
@@ -151,6 +158,10 @@ public class zPlayer : CCharacter
             Ani.SetBool("JumpUp", JumpState);
             Ani.SetBool("JumpDown", !JumpState);
         }
+        else
+        {
+            Ani.SetBool("JumpDown", false);
+        }
     }
 
     /// <summary>
@@ -212,9 +223,12 @@ public class zPlayer : CCharacter
     }
     private void FixedUpdate()
     {
+        
         if (isOperation)
             Move();
     }
+
+
     void Update()
     {
         if (isOperation)
@@ -222,6 +236,7 @@ public class zPlayer : CCharacter
             Jump();
             ZSlice();
             Attack();
+            ReadStroy();
         }
         isGroundUpdate();
         CanJumpUpdate();
@@ -239,23 +254,155 @@ public class zPlayer : CCharacter
             if (Input.GetMouseButtonDown(1))
             {
                 zs.SetSlicePoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-                zs.CheckStart();
+                SliceStart();
             }
         }
         else if (Input.GetButtonUp("Space"))
         {
-            zs.SliceStart();
+            SliceStart();
         }
         //确保释放技能在冷却范围内
         else if (Input.GetMouseButton(1))
         {
             zs.SetSlicePoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-            zs.SliceStart();
+
+            SliceStart();
         }
     }
 
+
+    private void SliceStart()
+    {
+        ResetParameter();
+        SetOperationState(false);
+        SetReciveHurtState(false);
+        Ani.SetInteger("Slice", 1);
+        _time = zc.zTime.ScheduleOnce(() => {
+            //开始进行斩击
+            zs.SliceStart();
+            
+            _time = zc.zTime.ScheduleOnce(() => {
+                Ani.SetInteger("Slice", 2);
+
+                _time = zc.zTime.ScheduleOnce(() => {
+                    //动作恢复
+                    Ani.SetInteger("Slice", 0);
+                    SetOperationState(true);
+                    SetReciveHurtState(true);
+                }, zs.EndSliceTime);
+            }, 0.1f);
+        }, 0.1f);
+        //zs.SliceStart();
+    }
+    /// <summary>
+    /// 设置玩家是否可以进行操作
+    /// </summary>
+    /// <param name="State"></param>
     public void SetOperationState(bool State)
     {
         isOperation = State;
+    }
+
+    /// <summary>
+    /// 主角开始读取数据
+    /// </summary>
+    private void ReadStroy()
+    {
+        if (CanRead&&Input.GetKey(KeyCode.R))
+        {
+            ResetParameter();
+            //播放转身的动画
+            Ani.SetInteger("Turn", 1);
+            //终止玩家的其他操作
+            isOperation = false;
+        }
+    }
+
+    /// <summary>
+    /// 动作状态机重置
+    /// </summary>
+    protected override void ResetParameter()
+    {
+        Ani.SetFloat("Speed", 0);
+        Ani.SetBool("JumpUp", false);
+        Ani.SetBool("JumpDown", false);
+        Ani.SetInteger("Attack", 0);
+        Ani.SetInteger("Attacked", 0);
+        Ani.SetInteger("Turn", 0);
+        Ani.SetInteger("Slice", 0);
+        
+    }
+
+    /// <summary>
+    /// 读取故事结束
+    /// </summary>
+    public void ReadStory_End()
+    {
+        //播放转身回正的动画
+        Ani.SetInteger("Turn", 2);
+
+        //0.2秒后玩家可以正常操作
+        _time = zc.zTime.ScheduleOnce(() => {
+            Ani.SetInteger("Turn", 0);
+            isOperation = true;
+        }, 0.2f);
+    }
+
+    /// <summary>
+    /// 设置主角是否可以读取剧情
+    /// </summary>
+    /// <param name="State">读取的状态</param>
+    public void SetReadState(bool State)
+    {
+        CanRead = State;
+    }
+
+    /// <summary>
+    /// 角色保持死亡的状态
+    /// </summary>
+    public void PlayerDeath()
+    {
+        ResetParameter();
+        SetOperationState(false);
+        Ani.SetBool("Deathing", true);
+    }
+
+    /// <summary>
+    /// 角色复活
+    /// </summary>
+    public void PlayerResurgence()
+    {
+        //玩家播放复活的动作
+        Ani.SetBool("Deathing", true);
+
+        _time = zc.zTime.ScheduleOnce(() => {
+            SetOperationState(true);
+        }, 0.5f);
+    }
+
+    protected override void AttackedEffection(Transform AttackPoint)
+    {
+        base.AttackedEffection(AttackPoint);
+        ResetParameter();
+        Ani.SetInteger("Attacked", 1);
+
+        SetReciveHurtState(false);
+        //Debug.Log(transform.name + "攻击影响代码执行");
+        SetOperationState(false);
+        _time = zc.zTime.ScheduleOnce(() => {
+            Ani.SetInteger("Attacked", 0);
+            SetOperationState(true);
+        }, 0.5f);
+
+        zc.zTime.ScheduleOnce(() => { SetReciveHurtState(true); }, InvincibleTime);
+    }
+
+    protected override void DeathEffection()
+    {
+        base.DeathEffection();
+        Debug.Log("执行死亡的动作" + Ani.GetBool("Death"));
+        Ani.SetBool("Death", true);
+        Debug.Log("执行死亡的动作" + Ani.GetBool("Death"));
+        SetOperationState(false);
     }
 }

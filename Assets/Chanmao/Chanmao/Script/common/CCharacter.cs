@@ -22,13 +22,12 @@ public class CCharacter : zItem
     public Transform Head;
     public Transform foot;
 
-    [Header("怪物是否受到重力影响")]
-    public bool isGrivaty = true;
+    //[Header("怪物是否受到重力影响")]
+    //public bool isGrivaty = true;
 
-    [Header("怪物受到的重力影响")]
-    public float Grivaty = 9.8f;
-
-    
+    //[Header("怪物受到的重力影响")]
+    //public float Grivaty = 9.8f;
+   
     
     protected float _Strenth;
     protected bool isGround;
@@ -62,7 +61,11 @@ public class CCharacter : zItem
         currentYSpeed = 0;
     }
 
-
+    protected override void DeathEffection()
+    {
+        base.DeathEffection();
+        //Ani.SetBool("Death", true);
+    }
 
     
     //private void OnTriggerEnter2D(Collider2D collision)
@@ -96,12 +99,12 @@ public class CCharacter : zItem
     //    }
     //}
 
-   
+
 
     /// <summary>
     /// 死亡的动画
     /// </summary>
-   
+
 
     /// <summary>
     /// 将物体移动到指定的位置
@@ -124,15 +127,15 @@ public class CCharacter : zItem
     /// <summary>
     /// 模拟的重力代码
     /// </summary>
-    protected void myGrivaty()
-    {
-        if (isGrivaty && !isGround)
-        {
-            currentYSpeed -= Grivaty;
-            //VerticalChange(-Grivaty);
-            //currentYSpeed = 0;
-        }
-    }
+    //protected void myGrivaty()
+    //{
+    //    if (isGrivaty && !isGround)
+    //    {
+    //        currentYSpeed -= Grivaty;
+    //        //VerticalChange(-Grivaty);
+    //        //currentYSpeed = 0;
+    //    }
+    //}
     protected void WalkGroundCheck()
     {
         isWalk = !zc.zCheck.Collider2DCheck(new Vector2(Head.position.x, Head.position.y), Vector2.right * Direction, checkDistance, "Ground", "Ground")
@@ -143,6 +146,17 @@ public class CCharacter : zItem
     {
         VerticalChange(currentYSpeed);
         currentYSpeed = 0;
+    }
+
+    protected override void AttackedEffection(Transform AttackPoint)
+    {
+        base.AttackedEffection(AttackPoint);
+
+        //更新玩家被攻击后朝的方向
+        Direction = transform.position.x - AttackPoint.position.x > 0 ? 1 : -1;
+
+        Scale.x = Direction * xScale;
+        transform.localScale = Scale;
     }
     /// <summary>
     /// 垂直方向的位置变化

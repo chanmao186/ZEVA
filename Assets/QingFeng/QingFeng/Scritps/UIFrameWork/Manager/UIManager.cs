@@ -5,10 +5,9 @@ using System;
 using LitJson;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class UIManager {
-
-    public CanvasGroup DarkIMG;
 
     //使用单例模式管理UI
     private static UIManager _instance;
@@ -133,5 +132,14 @@ public class UIManager {
         if (panelStack.Count <= 0) return;
         BasePanel nextPanel = panelStack.Peek();
         nextPanel.OnResume();
+    }
+
+    public void DarkLoad(string scene)
+    {
+        GameObject.Find("DarkEffect").GetComponent<DarkEffect>().DarkDisPlaySH(scene);
+    }
+    public void DarkEffect(TweenCallback callback )
+    {
+        GameObject.Find("DarkEffect").GetComponent<DarkEffect>().DarkDisPlay(callback);
     }
 }

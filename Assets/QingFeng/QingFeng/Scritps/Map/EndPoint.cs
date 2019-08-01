@@ -12,7 +12,7 @@ public class EndPoint : MonoBehaviour
         Debug.Log(collision.collider.tag);
         if (collision.collider.tag == "Player")
         {
-            SceneManager.LoadScene(sceneName );
+            UIManager.Instance.DarkLoad(sceneName);
         }
     }
 }

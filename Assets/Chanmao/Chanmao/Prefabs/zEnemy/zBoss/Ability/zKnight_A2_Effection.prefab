@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7291462118230678259}
   - component: {fileID: 7291462118230678268}
   - component: {fileID: 7291462118230678269}
+  - component: {fileID: 7477863228344532136}
   m_Layer: 0
   m_Name: zKnight_A2_Effection
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,6 +127,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0521779, y: 0.29342294}
   m_EdgeRadius: 0
+--- !u!114 &7477863228344532136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7291462118230678270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af7b9d4427dec1c4f9d01df7475582fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackedTag:
+  - Player
+  Hurt: 1
+  isDestroy: 0
 --- !u!1 &7291462118957795042
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +154,7 @@ GameObject:
   - component: {fileID: 7291462118957795041}
   m_Layer: 0
   m_Name: zKnight_A2_Effection
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

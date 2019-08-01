@@ -105,10 +105,13 @@
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\Map\DarkEffect.cs" />
     <Compile Include="Assets\QingFeng\QingFeng\Scritps\Map\EndPoint.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\Map\FilePoint.cs" />
     <Compile Include="Assets\QingFeng\QingFeng\Scritps\Map\Spines.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\Map\StoneDoor.cs" />
     <Compile Include="Assets\QingFeng\QingFeng\Scritps\Map\StoneTablet.cs" />
-    <Compile Include="Assets\QingFeng\QingFeng\Scritps\Map\TestPlayer.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\Map\Switch.cs" />
     <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIFrameWork\Base\BasePanel.cs" />
     <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIFrameWork\Manager\GameRoot.cs" />
     <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIFrameWork\Manager\UIManager.cs" />

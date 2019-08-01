@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-
+using UnityEngine.UI;
 public class MainPanel : BasePanel
 {
     private CanvasGroup canvasGroup;        
     public  bool isDisPlay=false ;          //面板是否显示
     public float  AnimSpeed = 1;            //动画播放时间
-
+    public Image image;
     public void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
+        image = GameObject.Find("DarkEffect").GetComponent <Image >();
         canvasGroup.alpha = 0;
     }
 
@@ -27,7 +28,7 @@ public class MainPanel : BasePanel
     /// </summary>
     /// <param name="panelTypeString">跳转面板类型</param>
     public void OnPushPanel(string panelTypeString)
-    {
+    { 
         UIPanelType panelType = (UIPanelType)System.Enum.Parse(typeof(UIPanelType), panelTypeString);
         UIManager.Instance.PanelPush(panelType);
     }
@@ -86,11 +87,14 @@ public class MainPanel : BasePanel
    
 
     /// <summary>
-    /// 进入游戏加载场景
+    /// 进入游戏
     /// </summary>
     public void  StartGame()
     {
-        //TODO delete
+        OnClosePanel();
+        OnPushPanel("PictureBook");
     }
+    
+
     
 }

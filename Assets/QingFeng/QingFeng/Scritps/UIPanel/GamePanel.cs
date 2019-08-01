@@ -1,14 +1,43 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class GamePanel : BasePanel
 {
     private CanvasGroup canvasGroup;
+    public Text text;
+    public Text tip;
+    public bool isOpenTip;
 
     public void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
+    }
+
+    public void TipChange(string str)
+    {
+        isOpenTip = true;
+        tip.text = str;
+        tip.enabled = true ;
+        tip.color = Color.clear;
+        tip.DOColor(Color.white, 1);
+    }
+
+    public void  TipsDisplay(string str ,Vector3 pos)
+    {
+        if (!isOpenTip)
+        {
+            text.text = str;
+            text.transform.position = Camera.main.WorldToScreenPoint(pos);
+            text.enabled = true;
+        }
+    }
+    public  void TipsHide()
+    {
+        text.enabled = false ;
+        isOpenTip = false;
     }
     /// <summary>
     /// 当前面板关闭

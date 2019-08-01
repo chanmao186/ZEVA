@@ -511,7 +511,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -560,18 +560,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zc: {fileID: 0}
   Heath: 2
+  AttackedForce: 0
   Strenth: 1
   WalkSpeed: 5
   RunSpeed: 20
   Weapon: {fileID: 1618022299386908737, guid: cd4e2d96e18fae84089df08b6a484d59, type: 3}
   Head: {fileID: 0}
   foot: {fileID: 0}
-  isGrivaty: 1
-  Grivaty: 9
-  AttackedForce: 0
   DestroyTime: 3
   Player: {fileID: 0}
   AbilityTime: 0.5
+  AvoidSameAbility: 0
   AbilityNumber: 3
   PreAbilityTime: 0.3
   HideTime: 1

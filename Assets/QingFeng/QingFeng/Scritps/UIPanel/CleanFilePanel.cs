@@ -12,7 +12,6 @@ public class CleanFilePanel : BasePanel
     public void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
-        canvasGroup.alpha = 0;
     }
 
     /// <summary>

@@ -171,21 +171,21 @@ public class zNormalEnemy : zEnemy
         }
     }
 
-    protected virtual void VirtulGriavty()
-    {
-        if (isGrivaty)
-        {
-            isGroundUpdate();
-            //Debug.Log(isGround);
-            if (!isGround)
-            {
-                transform.Translate(0, -Grivaty * Time.fixedDeltaTime, 0);
-            }
-        }
-    }
+    //protected virtual void VirtulGriavty()
+    //{
+    //    if (isGrivaty)
+    //    {
+    //        isGroundUpdate();
+    //        //Debug.Log(isGround);
+    //        if (!isGround)
+    //        {
+    //            transform.Translate(0, -Grivaty * Time.fixedDeltaTime, 0);
+    //        }
+    //    }
+    //}
     protected virtual void FixedUpdate()
     {
-        VirtulGriavty();
+        //VirtulGriavty();
         CheckEnemyState();
         DirectionState();
     }

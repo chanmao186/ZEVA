@@ -14,6 +14,11 @@ public class BackMenuPanel : BasePanel
     {
         canvasGroup = GetComponent<CanvasGroup>();
         canvasGroup.alpha = 0;
+
+    }
+    public void BackMain()
+    {
+        SceneManager.LoadScene("Init");
     }
 
     /// <summary>

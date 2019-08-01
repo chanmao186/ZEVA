@@ -196,7 +196,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563817870104434296}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -484,6 +484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zc: {fileID: 0}
   Heath: 2
+  AttackedForce: 0
   Strenth: 1
   WalkSpeed: 5
   RunSpeed: 5
@@ -492,10 +493,10 @@ MonoBehaviour:
   foot: {fileID: 0}
   isGrivaty: 0
   Grivaty: 9.8
-  AttackedForce: 0
   DestroyTime: 3
   Player: {fileID: 0}
   AbilityTime: 0.5
+  AvoidSameAbility: 0
   AbilityNumber: 3
   PreAbilityTime: 1
   HideTime: 1
@@ -533,7 +534,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -754,6 +755,7 @@ MonoBehaviour:
   CDImage: {fileID: 0}
   SliceEffection: {fileID: 0}
   EndSliceTime: 1
+  SliceSFX: {fileID: 0}
 --- !u!212 &5505194034460124543
 SpriteRenderer:
   m_ObjectHideFlags: 0
