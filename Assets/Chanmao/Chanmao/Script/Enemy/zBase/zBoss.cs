@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class zBoss : zEnemy
 {
@@ -35,6 +36,8 @@ public class zBoss : zEnemy
 
     [Header("游戏开始的时间")]
     public float StartTime = 1;
+
+    
     protected Vector2 BossPos;
 
     protected int lastA;
@@ -107,4 +110,6 @@ public class zBoss : zEnemy
                 break;
         }
     }
+
+    
 }

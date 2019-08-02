@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class zPlayer : CCharacter
 {
+    public static event Func DeathEvent;
     // Start is called before the first frame update    
     [Header("玩家的蓄力时间")]
     public float CastTime = 0.3f;
 
+
+    //public class fc{}
     //public float FirstJumpPower = 700;  
     //public float JumpPower = 120;
     [Header("初次跳跃的速度")]
@@ -400,9 +403,9 @@ public class zPlayer : CCharacter
     protected override void DeathEffection()
     {
         base.DeathEffection();
-        Debug.Log("执行死亡的动作" + Ani.GetBool("Death"));
+       // Debug.Log("执行死亡的动作" + Ani.GetBool("Death"));
         Ani.SetBool("Death", true);
-        Debug.Log("执行死亡的动作" + Ani.GetBool("Death"));
+        //Debug.Log("执行死亡的动作" + Ani.GetBool("Death"));
         SetOperationState(false);
     }
 }

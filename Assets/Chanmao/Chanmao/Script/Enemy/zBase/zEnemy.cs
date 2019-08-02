@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 public enum EnemyState
 {
@@ -9,11 +12,9 @@ public enum EnemyState
 }
 
 public class zEnemy : CCharacter
-{
-
+{  
     [Header("死后销毁时间(为0时不销毁)")]
     public float DestroyTime = 3f;
-
 
     //考虑设置个游戏管理器代码，在游戏管理器里赋值
     [Header("玩家节点")]
@@ -24,7 +25,7 @@ public class zEnemy : CCharacter
 
     protected float _AbilityTime = 0;
 
-    
+    protected zEnemyController zec;
 
     /// <summary>
     /// 是否启用状态转换机
@@ -38,7 +39,7 @@ public class zEnemy : CCharacter
         //isCanChangState= true;
         Direction = 1;
         Player = FindObjectOfType<zPlayer>().transform;
-
+        zec = GetComponent<zEnemyController>();
         //Debug.Log("zEnemy执行");
     }
 
@@ -47,5 +48,11 @@ public class zEnemy : CCharacter
         Scale.x = -xScale * Direction;
         transform.localScale = Scale;
         //xScale = _rigidbody2D.velocity.x<0?
+    }
+
+    protected override void DeathEffection()
+    {
+        base.DeathEffection();
+        zec.EnemtCount();
     }
 }

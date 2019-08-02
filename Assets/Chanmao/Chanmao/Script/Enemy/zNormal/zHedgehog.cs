@@ -78,7 +78,7 @@ public class zHedgehog : zGroundEnemy
         //Vector3 _s = Thorn.localScale;
         if (Mathf.Abs(Player.position.x - transform.position.x) < AbilityDistance)
         {
-            Debug.Log("刺猬释放技能，伸长了刺");
+            //Debug.Log("刺猬释放技能，伸长了刺");
             Ani.SetInteger("Attack", 2);
             Attack1Area.SetActive(true);
             //_s.y = ThornHeight;

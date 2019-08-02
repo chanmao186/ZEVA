@@ -13,9 +13,6 @@ public class ZSlice : MonoBehaviour
     [Header("切割的最大距离")]
     public float SliceDistance = 5.0f;
 
-    [Header("斩击造成的伤害")]
-    public float SliceHurt = 10;
-
     [Header("斩击的预制体")]
     public GameObject Knite;
 

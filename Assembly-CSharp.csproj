@@ -78,6 +78,7 @@
     <Compile Include="Assets\Chanmao\Chanmao\Script\common\ZTime.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBase\zBoss.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBase\zEnemy.cs" />
+    <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBase\zEnemyController.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBase\zFlyEnemy.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBase\zGroundEnemy.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBase\zNormalEnemy.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Assets\Chanmao\Chanmao\Script\temp\CommandBufferBlur.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\TiggerTest.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\UI\Drag.cs" />
+    <Compile Include="Assets\Chanmao\Chanmao\Source\Sence\test.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />

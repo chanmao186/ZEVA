@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class zItem : MonoBehaviour
 {
+    [Header("死亡后执行的事件")]
+    public UnityEvent DeathEvent;
     // Start is called before the first frame update
     [Header("游戏管理器")]
     public ZController zc;
@@ -35,6 +38,7 @@ public class zItem : MonoBehaviour
     }
     protected virtual void DeathEffection() {
         Debug.Log(transform.name+"死亡");
+        DeathEvent?.Invoke();
     }
     /// <summary>
     /// 小怪物死亡
@@ -50,9 +54,14 @@ public class zItem : MonoBehaviour
     /// 获得角色当前的血量
     /// </summary>
     /// <returns></returns>
-    private float GetCurrentHeath()
+    public float GetCurrentHeath()
     {
         return _Heath;
+    }
+
+    public void SetCurrentHeath(float Heath)
+    {
+        _Heath = Heath;
     }
     /// <summary>
     /// 小怪物被攻击

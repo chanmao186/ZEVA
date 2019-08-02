@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8820219923144528553}
   - component: {fileID: 6975754017859854341}
   - component: {fileID: 3347117885864674003}
+  - component: {fileID: 6988047843759610117}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -113,3 +114,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a312b78184c4654687973903eff7dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6988047843759610117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7303449727465325957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83493317f24004944b11f35261029acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyNum: 1
+  isCount: 0
+  EnemyEmpty:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
