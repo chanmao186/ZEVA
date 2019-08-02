@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class zPlayer : CCharacter
 {
-    public static event Func DeathEvent;
+    //public static event Func DeathEvent;
     // Start is called before the first frame update    
     [Header("玩家的蓄力时间")]
     public float CastTime = 0.3f;
-
-
     //public class fc{}
     //public float FirstJumpPower = 700;  
     //public float JumpPower = 120;
@@ -31,6 +29,32 @@ public class zPlayer : CCharacter
     [Header("主角是否可以按R读取数据")]
     public bool CanRead = false;
 
+    [Header("主角的奔跑速度")]
+    public float runSpeed = 1.5f;
+
+    [Header("跳起音效")]
+    public AudioClip JumpUpAudio;
+    private int JumpUpAudioNum;
+
+    [Header("落下音效")]
+    public AudioClip JumpDownAudio;
+    private int JumpDownAuioIndex;
+
+    [Header("攻击音效")]
+    public AudioClip AttackAudio;
+    private int AttackAudioNum;
+
+    [Header("被攻击音效")]
+    public AudioClip AttackedAudio;
+    private int AttackedAudioNum;
+
+    [Header("走路的音效")]
+    public AudioClip WalkAudio;
+    private int WalkAudioNum;
+
+    [Header("死亡的音效")]
+    public AudioClip DeathAudio;
+    private int DeathAudioNum;
     
     private float AttacksTime;
     private float _AttacksTime = 0;
@@ -38,8 +62,6 @@ public class zPlayer : CCharacter
     private float _CastTime;
     //设置一个变量检查玩家什么时候可以跳起
 
-
-    public float runSpeed = 1.5f;
     //奔跑的速度
     private float rs;
     private bool CanJump1;
@@ -70,6 +92,19 @@ public class zPlayer : CCharacter
 
     }
 
+    /// <summary>
+    /// 进行音乐配置
+    /// </summary>
+    private void AudioConfig()
+    {
+        JumpUpAudioNum = AudioManager.Instance.Init(JumpUpAudioNum, true);
+        JumpDownAuioIndex = AudioManager.Instance.Init(JumpDownAuioIndex, true);
+        AttackAudioNum = AudioManager.Instance.Init(AttackAudio, true);
+        AttackedAudioNum = AudioManager.Instance.Init(AttackedAudio, true);
+        WalkAudioNum = AudioManager.Instance.Init(WalkAudio, true);
+        DeathAudioNum = AudioManager.Instance.Init(DeathAudio, true);
+    }
+
     private void Jump()
     {
         //CanJump2的功能，防止玩家一直按住跳跃键时，玩家向上跳跃
@@ -83,8 +118,10 @@ public class zPlayer : CCharacter
         if (!CanJump1) return;
         if (Input.GetButtonDown("MyJump"))
         {
-            //播放玩家跳跃的动画
 
+
+            //播放玩家跳跃的动画
+            
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, FirstJumpVeloctiy);
         }
         else if (Input.GetButton("MyJump") && CanJump2)
@@ -154,6 +191,7 @@ public class zPlayer : CCharacter
     /// </summary>
     private void PlayJumpAimation()
     {
+        
         //检测玩家是否再地面上，若不再地面上则执行跳跃的代码
         if (!isGround)
         {
@@ -243,6 +281,8 @@ public class zPlayer : CCharacter
         }
         isGroundUpdate();
         CanJumpUpdate();
+
+
         PlayJumpAimation();
     }
 

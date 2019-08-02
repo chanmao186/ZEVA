@@ -82,10 +82,11 @@
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBase\zFlyEnemy.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBase\zGroundEnemy.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBase\zNormalEnemy.cs" />
-    <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\BossSlice.cs" />
+    <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\Ability\BossSlice.cs" />
+    <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\Ability\zMashterA2.cs" />
+    <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\Ability\zMasterA3.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\zEarthColler.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\zKnight.cs" />
-    <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\zMashterA2.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\zMaster.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\zMasterA2Contrller.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\zSelf.cs" />
@@ -99,7 +100,6 @@
     <Compile Include="Assets\Chanmao\Chanmao\Script\temp\CommandBufferBlur.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\TiggerTest.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\UI\Drag.cs" />
-    <Compile Include="Assets\Chanmao\Chanmao\Source\Sence\test.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />

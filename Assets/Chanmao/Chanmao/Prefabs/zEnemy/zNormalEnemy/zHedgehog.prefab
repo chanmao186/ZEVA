@@ -373,6 +373,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -409,20 +410,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46c3d8bae2190b748b3d1c9b47889c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: test
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   zc: {fileID: 0}
   Heath: 2
+  AttackedForce: 0
   Strenth: 1
   WalkSpeed: 3
   RunSpeed: 2
   Weapon: {fileID: 0}
   Head: {fileID: 5291855905661105955}
   foot: {fileID: 5291855905950483963}
-  isGrivaty: 1
-  Grivaty: 9
-  AttackedForce: 0
   DestroyTime: 3
   Player: {fileID: 0}
-  AbilityTime: 1
+  AbilityTime: 1.5
   InspectDistance: 10
   isPursuePlayer: 1
   OriginPoint: {fileID: 5291855905967919060}

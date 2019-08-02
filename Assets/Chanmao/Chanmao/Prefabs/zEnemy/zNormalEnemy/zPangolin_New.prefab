@@ -4694,6 +4694,7 @@ ParticleSystemRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -9423,6 +9424,7 @@ ParticleSystemRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -14260,6 +14262,7 @@ ParticleSystemRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -19082,6 +19085,7 @@ ParticleSystemRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -19630,6 +19634,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -19642,7 +19647,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -574317017696559698, guid: 64a75966e737e23418630c24830ab8a9,
+  m_Sprite: {fileID: -376727511413232081, guid: 09875de03dc3aa847bd2204e8d9f3748,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -19671,7 +19676,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.64209, y: 8.42}
+    oldSize: {x: 8.701325, y: 8.45}
     newSize: {x: 9.38, y: 8.0341015}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -19692,17 +19697,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ff0575ace8774428e04d57fcc78109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   zc: {fileID: 0}
   Heath: 2
+  AttackedForce: 0
   Strenth: 1
   WalkSpeed: 5
   RunSpeed: 5
   Weapon: {fileID: 0}
   Head: {fileID: 4988117648251825472}
   foot: {fileID: 4988117648591609752}
-  isGrivaty: 1
-  Grivaty: 9
-  AttackedForce: 0
   DestroyTime: 3
   Player: {fileID: 0}
   AbilityTime: 0.5

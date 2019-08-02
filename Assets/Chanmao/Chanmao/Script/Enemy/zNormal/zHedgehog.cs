@@ -16,6 +16,8 @@ public class zHedgehog : zGroundEnemy
     // Start is called before the first frame update
     protected float AbilityDistance;
 
+    protected float prePursueTime = 0.5f;
+    protected float _prePursueTime = 0;
     Quaternion ThornQuanternion;
     Vector3 ThornScale;
 

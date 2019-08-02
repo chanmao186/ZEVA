@@ -97,7 +97,7 @@ public class zBoss : zEnemy
         }        
         //Random.Range(0, AbilityNumber)
         //随机释放一个技能Random.Range(0, AbilityNumber)
-        switch (currentA)
+        switch (1)
         {
             case 0:
                 Ability1();

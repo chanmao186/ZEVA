@@ -54,5 +54,13 @@ public class zEnemy : CCharacter
     {
         base.DeathEffection();
         zec.EnemtCount();
+
+        //不在对玩家造成伤害
+        if (GetComponent<zHurt>())
+        {
+            _rigidbody2D.gravityScale = 0;
+            GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<zHurt>().enabled = false;
+        }
     }
 }

@@ -22,6 +22,9 @@ public class zMaster : zBoss
     [Header("技能2的释放间隔")]
     public float A2Interval;
 
+    [Header("技能2的冰花出现的间隔")]
+    public float A2Interval1;
+
     [Header("技能3的几个发射位置")]
     public Transform[] A3Pos;
 
@@ -44,10 +47,15 @@ public class zMaster : zBoss
 
     private Vector2 Ability1ExplosionPos;
     float up, down;
+
+    private int A2Num;
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
+        float num =(A2Pos[1].position.x - A2Pos[0].position.x) / 4;
+        A2Num = Mathf.CeilToInt(num);
+        Debug.Log(A2Num);
     }
 
     protected override void Ability1()
@@ -70,29 +78,52 @@ public class zMaster : zBoss
         }, PreAbilityTime);
     }
 
-    private void A2Fun(int pos)
+    private void A2Fun(Vector2 pos)
     {
-        GameObject a = Instantiate(A2Prefab,A2Pos[pos].position,A2Pos[pos].rotation);
+        GameObject a = Instantiate(A2Prefab, pos, A2Pos[0].rotation);
         Destroy(a, 1.5f);
+    }
+
+    /// <summary>
+    /// 技能2释放顺序
+    /// </summary>
+    /// <param name="originPosIndex">起始点的坐标</param>
+    /// <param name="OperationWay">运算方式，true向右，false向做</param>
+    /// <param name="CallBack">回调函数</param>
+    private void A2Fun1(int originPosIndex,bool OperationWay,Func CallBack)
+    {
+        Ani.SetTrigger("Attack");
+        Vector2 pos = A2Pos[originPosIndex].position;
+        _time = zc.zTime.Schedule(() => {
+            A2Fun(pos);
+
+            if (OperationWay)
+                pos.x += 4;
+            else
+                pos.x -= 4;
+        }, 0.5f, A2Num, CallBack);
     }
 
     protected override void Ability2()
     {
         SetToPoint(AbilityPoint[1]);
         //播放动画
-        Ani.SetTrigger("Attack");
+        //Ani.SetTrigger("Attack");
         _time = zc.zTime.ScheduleOnce(() =>
         {
-            Ani.SetTrigger("Attack");
+            
+            A2Fun1(0, true, () => {
+                _time = zc.zTime.ScheduleOnce(() =>
+                {
+                    A2Fun1(1,false,()=> {
+                        //技能而结束
+                        _time = zc.zTime.ScheduleOnce(AbilityEnd, A2Interval + 0.2f);
+                    });                   
+                }, A2Interval1);
+            });
 
-            A2Fun(0);
-            _time = zc.zTime.ScheduleOnce(() =>
-            {
-                Ani.SetTrigger("Attack");
-                A2Fun(1);
-                //技能而结束
-                _time = zc.zTime.ScheduleOnce(AbilityEnd, A2Interval+0.2f);
-            }, A2Interval);
+            
+            
         }, PreAbilityTime);
     }
 
