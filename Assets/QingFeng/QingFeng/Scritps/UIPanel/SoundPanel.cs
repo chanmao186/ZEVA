@@ -2,9 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
+
 public class SoundPanel : BasePanel 
 {
     private CanvasGroup canvasGroup;
+    public Slider audioTotal;
+    public Slider audioBGM;
+    public Slider audioEffect;
+    public bool isInited=false ;
     public bool isDisPlay = false;          //面板是否显示
     public float AnimSpeed = 1;            //动画播放时间
 
@@ -12,8 +18,35 @@ public class SoundPanel : BasePanel
     {
         canvasGroup = GetComponent<CanvasGroup>();
         canvasGroup.alpha = 0;
+        audioTotal.value = AudioManager.Instance.totalVolume;
+        audioEffect.value = AudioManager.Instance.effectVolume;
+        audioBGM.value = AudioManager.Instance.bgmVolume;
+        isInited = true;
+    }
+    public void TotalVolume()
+    {
+        if (isInited)
+        {
+            AudioManager.Instance.totalVolume = audioTotal.value;
+            BgmVolume();
+            EffectVolume();
+        }
     }
 
+    public void BgmVolume()
+    {
+        if (isInited)
+        {
+            AudioManager.Instance.AdjustBgmVolume(audioBGM.value);
+        }
+    }
+    public void EffectVolume()
+    {
+        if (isInited)
+        {
+            AudioManager.Instance.AdjustEftVolume(audioEffect.value);
+        }
+    }
     /// <summary>
     /// 当前面板关闭
     /// </summary>
