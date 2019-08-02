@@ -45,7 +45,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6115206253944870387
 Transform:
   m_ObjectHideFlags: 0
@@ -75,7 +75,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3734637352579560509
 Transform:
   m_ObjectHideFlags: 0
@@ -102,18 +102,18 @@ GameObject:
   m_Component:
   - component: {fileID: 6577061321779227255}
   - component: {fileID: 6577061321779227248}
-  - component: {fileID: 6577061321779227249}
   - component: {fileID: 6577061321779227253}
   - component: {fileID: 6577061321779227254}
   - component: {fileID: 9195267064575846757}
   - component: {fileID: 7418843450421439700}
+  - component: {fileID: 830650208}
   m_Layer: 10
   m_Name: player1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6577061321779227255
 Transform:
   m_ObjectHideFlags: 0
@@ -156,6 +156,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -180,25 +181,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &6577061321779227249
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6577061321779227250}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d55013f3432021f49aa3ce83a9945699, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!61 &6577061321779227253
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -259,20 +241,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zc: {fileID: 0}
-  Heath: 2
+  Heath: 1
+  AttackedForce: 600
   Strenth: 1
   WalkSpeed: 8
   RunSpeed: 5
   Weapon: {fileID: 5901798966877069829}
   Head: {fileID: 8867644313855757748}
   foot: {fileID: 7522206096379270194}
-  isGrivaty: 1
-  Grivaty: 20
-  AttackedForce: 0
   CastTime: 0.3
   FirstJumpVeloctiy: 30
   JumpVeloctiy: 20
+  InvincibleTime: 0.5
   AttacksFrequence: 2
+  isOperation: 1
+  CanRead: 0
   runSpeed: 1.5
 --- !u!114 &7418843450421439700
 MonoBehaviour:
@@ -296,7 +279,27 @@ MonoBehaviour:
   IsThrounGround: 1
   CDImage: {fileID: 0}
   SliceEffection: {fileID: 0}
-  EndSliceTime: 1.5
+  EndSliceTime: 0.5
+  SliceSFX: {fileID: 0}
+--- !u!95 &830650208
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6577061321779227250}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0e2d81039a02e2b46bf4811be46cb365, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6798990556331037584
 GameObject:
   m_ObjectHideFlags: 0
