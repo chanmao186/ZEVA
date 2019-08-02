@@ -19,14 +19,7 @@ public class GameRoot : MonoBehaviour {
 	void Awake () {
         UIManager.Instance.PanelPush(UIPanelType.Main);
         DontDestroyOnLoad(this.gameObject);
-        if (instance ==null )
-        {
-            instance = this ;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        
     }
 
     private void Update()
