@@ -8,9 +8,12 @@ public class CleanFilePanel : BasePanel
     private CanvasGroup canvasGroup;
     public bool isDisPlay = false;          //面板是否显示
     public float AnimSpeed = 1;            //动画播放时间
+    public int clearNum = -1;
+    public FileData fileData;
 
     public void Awake()
     {
+        fileData = GetComponent<FileData>();
         canvasGroup = GetComponent<CanvasGroup>();
     }
 
@@ -89,6 +92,11 @@ public class CleanFilePanel : BasePanel
     /// </summary>
     public void CleanFile()
     {
-        Debug.Log("清除存档");
+        clearNum = UIManager.Instance.clearFileNum;
+        if (clearNum < 0)
+        {
+            return;
+        }
+        fileData.ClearFile(clearNum);
     }
 }

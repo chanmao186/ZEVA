@@ -1,7 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LitJson;
+using System.IO;
+using System.Text;
+//using static Pathfinding.Util.GridLookup<T>;
+//using static Pathfinding.Util.GridLookup<T>;
 
+public enum PlayerState
+{
+    Idle, Walk, Jump, Death, Attaked
+}
 public class zPlayer : CCharacter
 {
     //public static event Func DeathEvent;
@@ -32,30 +41,33 @@ public class zPlayer : CCharacter
     [Header("主角的奔跑速度")]
     public float runSpeed = 1.5f;
 
+    
+    //[Header("储存数据的文件")]
+    //public JsonObject PlayData;
     [Header("跳起音效")]
-    public AudioClip JumpUpAudio;
+    public AudioSource JumpUpAudio;
     private int JumpUpAudioNum;
 
     [Header("落下音效")]
-    public AudioClip JumpDownAudio;
-    private int JumpDownAuioIndex;
+    public AudioSource JumpDownAudio;
+    private int JumpDownAuioNum;
 
     [Header("攻击音效")]
-    public AudioClip AttackAudio;
+    public AudioSource AttackAudio;
     private int AttackAudioNum;
 
     [Header("被攻击音效")]
-    public AudioClip AttackedAudio;
+    public AudioSource AttackedAudio;
     private int AttackedAudioNum;
 
     [Header("走路的音效")]
-    public AudioClip WalkAudio;
+    public AudioSource WalkAudio;
     private int WalkAudioNum;
 
     [Header("死亡的音效")]
-    public AudioClip DeathAudio;
+    public AudioSource DeathAudio;
     private int DeathAudioNum;
-    
+
     private float AttacksTime;
     private float _AttacksTime = 0;
 
@@ -67,6 +79,7 @@ public class zPlayer : CCharacter
     private bool CanJump1;
     private bool CanJump2;
 
+    private PlayerState CurrentState;
     //private GameObject _Weapon;
     //记录攻击的次数
     private int AttacksNum;
@@ -76,6 +89,10 @@ public class zPlayer : CCharacter
     //检测玩家是否转身
     private float checkturn;
 
+    public Root PlayerData;
+    private int SliceNum = 1;
+
+    
     protected override void Start()
     {
         base.Start();
@@ -86,19 +103,116 @@ public class zPlayer : CCharacter
         _CastTime = 0;
         rs = 1f;
 
+        CurrentState = PlayerState.Idle;
         //Time.timeScale = 0;
         CanJump1 = false;
         CanJump2 = true;
 
+
+        JsonConfig();
+        LevelStart();              
+        AudioConfig();      
     }
 
+    private void JsonConfig()
+    {
+        string JsonFilePath = Application.dataPath + "/Chanmao/Chanmao/Script/Json/PlayerData.json";
+        StreamReader streamreader = new StreamReader(JsonFilePath);
+        JsonReader js = new JsonReader(streamreader);//再转换成json数据
+        PlayerData = JsonMapper.ToObject<Root>(js);//读取
+    }
+    /// <summary>
+    /// 关卡开始，读取数据
+    /// </summary>
+    public void LevelStart()
+    {
+        ReadCurentData();     
+    }
+
+    public Animator GetPlayAni()
+    {
+        return Ani;
+    }
+
+    /// <summary>
+    /// 关卡结束，保存数据
+    /// </summary>
+    public void LevelEnd()
+    {
+        WirteDateToJson();
+    }
+
+    private void WirteDateToJson()
+    {
+        PlayerData state = PlayerData.PlayerStates[1];
+
+        state._Heath = _Heath;
+        state.Heath = Heath;
+
+        state.SliceDistance = zs.SliceDistance;
+        state.SliceNum = zs.SliceNum;
+
+        string json = JsonMapper.ToJson(PlayerData.PlayerStates);
+
+        string JsonFilePath = Application.dataPath + "/Chanmao/Chanmao/Script/Json/PlayerData.json";
+        StreamWriter sw = File.CreateText(JsonFilePath);
+        sw.Close();
+        File.WriteAllText(JsonFilePath, json, Encoding.UTF8);
+        //Debug.Log("写入");
+    }
+    /// <summary>
+    /// 读取默认值
+    /// </summary>
+    public void ReadCurentData()
+    {
+        _PlayerDateConfig(0);
+    }
+
+    /// <summary>
+    /// 读取当前值
+    /// </summary>
+    public void ReadDefaultData()
+    {
+        _PlayerDateConfig(1);
+    }
+
+    /// <summary>
+    /// 设置斩击次数
+    /// </summary>
+    /// <param name="num"></param>
+    public void SetSliceNum(int num)
+    {
+        zs.SliceNum = num;
+    }
+
+    /// <summary>
+    /// 设置斩击的长度
+    /// </summary>
+    /// <param name="Distance"></param>
+    public void SetSliceDistance(float Distance)
+    {
+        zs.SliceDistance = Distance;
+    }
+    /// <summary>
+    /// 进行游戏配置
+    /// </summary>
+    /// <param name="type">0为配置为默认版本，1为配置为当前版本</param>
+    private void _PlayerDateConfig(int type)
+    {
+        //_Heath = PlayerData.PlayerStates[type]._Heath;
+        //Heath = PlayerData.PlayerStates[type].Heath;
+
+        zs.SliceDistance = PlayerData.PlayerStates[type].SliceDistance;
+        zs.SliceNum = PlayerData.PlayerStates[type].SliceNum;
+    }
+   
     /// <summary>
     /// 进行音乐配置
     /// </summary>
     private void AudioConfig()
     {
-        JumpUpAudioNum = AudioManager.Instance.Init(JumpUpAudioNum, true);
-        JumpDownAuioIndex = AudioManager.Instance.Init(JumpDownAuioIndex, true);
+        JumpUpAudioNum = AudioManager.Instance.Init(JumpUpAudio, true);
+        JumpDownAuioNum = AudioManager.Instance.Init(JumpDownAudio, true);
         AttackAudioNum = AudioManager.Instance.Init(AttackAudio, true);
         AttackedAudioNum = AudioManager.Instance.Init(AttackedAudio, true);
         WalkAudioNum = AudioManager.Instance.Init(WalkAudio, true);
@@ -118,13 +232,14 @@ public class zPlayer : CCharacter
         if (!CanJump1) return;
         if (Input.GetButtonDown("MyJump"))
         {
-
+            //AudioManager.Instance.StopEffect(JumpUpAudioNum);
+            AudioManager.Instance.PlayEffect(JumpUpAudioNum);
 
             //播放玩家跳跃的动画
-            
+
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, FirstJumpVeloctiy);
         }
-        else if (Input.GetButton("MyJump") && CanJump2)
+        else if (Input.GetButton("MyJump") && CanJump2 && SliceNum == 0)
         {
             //播放玩家跳跃的动画
             _CastTime += Time.fixedDeltaTime;
@@ -149,16 +264,22 @@ public class zPlayer : CCharacter
         {
             Ani.SetFloat("Speed", 1f);
             // 获取当前玩家要前进的方向
-            float d = i > 0 ? 1 : -1;
-            if (checkturn != d)
+            float Direction = i > 0 ? 1 : -1;
+            if (checkturn != Direction)
             {
                 //如果玩具转向的话，刀刃立即消失
                 Weapon.SetActive(false);
             }
-            checkturn = d;
-            transform.Translate(Vector2.right * WalkSpeed * rs * d * Time.deltaTime, Space.World);
 
-            Scale.x = xScale * -d;
+            if (!Ani.GetBool("JumpDown") || !Ani.GetBool("JumpUp"))
+            {
+                AudioManager.Instance.PlayEffect(WalkAudioNum);
+            }
+
+            checkturn = Direction;
+            transform.Translate(Vector2.right * WalkSpeed * rs * Direction * Time.deltaTime, Space.World);
+
+            Scale.x = xScale * -Direction;
             transform.localScale = Scale;
 
             GetComponent<Rigidbody2D>().simulated = true;
@@ -191,7 +312,7 @@ public class zPlayer : CCharacter
     /// </summary>
     private void PlayJumpAimation()
     {
-        
+
         //检测玩家是否再地面上，若不再地面上则执行跳跃的代码
         if (!isGround)
         {
@@ -201,7 +322,16 @@ public class zPlayer : CCharacter
         }
         else
         {
+            if (Ani.GetBool("JumpDown"))
+            {
+                //AudioManager.Instance.PlayEffect(JumpDownAuioNum);
+            }
             Ani.SetBool("JumpDown", false);
+            SliceNum = 0;
+            if (CurrentState == PlayerState.Death)
+            {
+                PlayerDeath();
+            }
         }
     }
 
@@ -237,7 +367,10 @@ public class zPlayer : CCharacter
             Ani.SetInteger("Attack", AttacksNum);
             AttacksNum = 1;
 
-            ;
+            //播放普通攻击的音效
+            AudioManager.Instance.StopEffect(AttackAudioNum);
+            AudioManager.Instance.PlayEffect(AttackAudioNum);
+
             zc.zTime.ScheduleOnce(() =>
             {
                 Weapon.SetActive(true);
@@ -264,7 +397,7 @@ public class zPlayer : CCharacter
     }
     private void FixedUpdate()
     {
-        
+
         if (isOperation)
             Move();
     }
@@ -291,24 +424,25 @@ public class zPlayer : CCharacter
     /// </summary>
     private void ZSlice()
     {
-        if (zs.GetCurrentCoolTime() > 0) return;
-        if (Input.GetButton("Space"))
-        {
-            if (Input.GetMouseButtonDown(1))
-            {
-                zs.SetSlicePoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-                SliceStart();
-            }
-        }
-        else if (Input.GetButtonUp("Space"))
-        {
-            SliceStart();
-        }
-        //确保释放技能在冷却范围内
-        else if (Input.GetMouseButton(1))
+        //if (zs.GetCurrentCoolTime() > 0) return;
+        //if (Input.GetButton("Space"))
+        //{
+        //    if (Input.GetMouseButtonDown(1))
+        //    {
+        //        zs.SetSlicePoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        //        SliceStart();
+        //    }
+        //}
+        //else if (Input.GetButtonUp("Space"))
+        //{
+        //    SliceStart();
+        //}
+        ////确保释放技能在冷却范围内
+        //else 
+        if (Input.GetMouseButton(1) && !isGround && SliceNum == 0)
         {
             zs.SetSlicePoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-
+            SliceNum++;
             SliceStart();
         }
     }
@@ -320,14 +454,17 @@ public class zPlayer : CCharacter
         SetOperationState(false);
         SetReciveHurtState(false);
         Ani.SetInteger("Slice", 1);
-        _time = zc.zTime.ScheduleOnce(() => {
+        _time = zc.zTime.ScheduleOnce(() =>
+        {
             //开始进行斩击
             zs.SliceStart();
-            
-            _time = zc.zTime.ScheduleOnce(() => {
+
+            _time = zc.zTime.ScheduleOnce(() =>
+            {
                 Ani.SetInteger("Slice", 2);
 
-                _time = zc.zTime.ScheduleOnce(() => {
+                _time = zc.zTime.ScheduleOnce(() =>
+                {
                     //动作恢复
                     Ani.SetInteger("Slice", 0);
                     SetOperationState(true);
@@ -351,7 +488,7 @@ public class zPlayer : CCharacter
     /// </summary>
     private void ReadStroy()
     {
-        if (CanRead&&Input.GetKey(KeyCode.R))
+        if (CanRead && Input.GetKey(KeyCode.R))
         {
             ResetParameter();
             //播放转身的动画
@@ -361,6 +498,10 @@ public class zPlayer : CCharacter
         }
     }
 
+    public void ResetAni()
+    {
+        ResetParameter();
+    }
     /// <summary>
     /// 动作状态机重置
     /// </summary>
@@ -373,7 +514,7 @@ public class zPlayer : CCharacter
         Ani.SetInteger("Attacked", 0);
         Ani.SetInteger("Turn", 0);
         Ani.SetInteger("Slice", 0);
-        
+
     }
 
     /// <summary>
@@ -385,7 +526,8 @@ public class zPlayer : CCharacter
         Ani.SetInteger("Turn", 2);
 
         //0.2秒后玩家可以正常操作
-        _time = zc.zTime.ScheduleOnce(() => {
+        _time = zc.zTime.ScheduleOnce(() =>
+        {
             Ani.SetInteger("Turn", 0);
             isOperation = true;
         }, 0.2f);
@@ -406,7 +548,12 @@ public class zPlayer : CCharacter
     public void PlayerDeath()
     {
         ResetParameter();
+
         SetOperationState(false);
+        //主要目的是取消玩家的碰撞，并让主角回到地面上
+        GetComponent<BoxCollider2D>().enabled = false;
+        _rigidbody2D.velocity = new Vector2(0, 0);
+        _rigidbody2D.gravityScale = 0;
         Ani.SetBool("Deathing", true);
     }
 
@@ -418,7 +565,8 @@ public class zPlayer : CCharacter
         //玩家播放复活的动作
         Ani.SetBool("Deathing", true);
 
-        _time = zc.zTime.ScheduleOnce(() => {
+        _time = zc.zTime.ScheduleOnce(() =>
+        {
             SetOperationState(true);
         }, 0.5f);
     }
@@ -432,7 +580,8 @@ public class zPlayer : CCharacter
         SetReciveHurtState(false);
         //Debug.Log(transform.name + "攻击影响代码执行");
         SetOperationState(false);
-        _time = zc.zTime.ScheduleOnce(() => {
+        _time = zc.zTime.ScheduleOnce(() =>
+        {
             Ani.SetInteger("Attacked", 0);
             SetOperationState(true);
         }, 0.5f);
@@ -443,9 +592,21 @@ public class zPlayer : CCharacter
     protected override void DeathEffection()
     {
         base.DeathEffection();
-       // Debug.Log("执行死亡的动作" + Ani.GetBool("Death"));
+        // Debug.Log("执行死亡的动作" + Ani.GetBool("Death"));
         Ani.SetBool("Death", true);
+
+        CurrentState = PlayerState.Death;
+
         //Debug.Log("执行死亡的动作" + Ani.GetBool("Death"));
         SetOperationState(false);
+    }
+
+    /// <summary>
+    /// 获得玩家的朝向
+    /// </summary>
+    /// <returns></returns>
+    public int GetDirection()
+    {
+        return Direction;
     }
 }

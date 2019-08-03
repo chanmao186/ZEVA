@@ -38,7 +38,8 @@ public class ZSlice : MonoBehaviour
     public float EndSliceTime = 1f;
 
     [Header("斩击的音效")]
-    public AudioClip SliceSFX;
+    public AudioSource SliceSFX;
+    private int SliceSFXNum;
 
     Rigidbody2D r2;
     private float _CoolingTime = 0;
@@ -92,8 +93,14 @@ public class ZSlice : MonoBehaviour
         _SliceNum = 0;
         r2 = GetComponent<Rigidbody2D>();
         PlayerPos = new Vector2(transform.position.x, transform.position.y);
+        AudioConfig();
     }
 
+    private void AudioConfig()
+    {
+        if(SliceSFX)
+        SliceSFXNum = AudioManager.Instance.Init(SliceSFX, true);
+    }
     public void SetSlicePoint(Vector2 point)
     {
         MousePos[_SliceNum] = point;
@@ -181,6 +188,7 @@ public class ZSlice : MonoBehaviour
     /// <param name="direction">要斩击的方向</param>
     private void PlayerSlice(int SliceNum)
     {
+        AudioManager.Instance.PlayEffect(SliceSFXNum);
         Debug.Log("玩家开始进行斩击");
         Quaternion q = Quaternion.FromToRotation(new Vector2(1, 0), SliceDirection);
 

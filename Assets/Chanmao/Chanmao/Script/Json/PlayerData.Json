@@ -1,0 +1,20 @@
+{
+
+
+  "PlayerStates": [
+    {
+      "ID": "001",
+      "Heath": 5,
+      "_Heath": 5,
+      "SliceDistance": 5,
+      "SliceNum": 1
+    },
+    {
+      "ID": "001",
+      "Heath": 5,
+      "_Heath": 5,
+      "SliceDistance": 5,
+      "SliceNum": 1
+    }
+  ]
+}

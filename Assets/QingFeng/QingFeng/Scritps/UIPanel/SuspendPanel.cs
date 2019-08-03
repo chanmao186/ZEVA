@@ -23,6 +23,7 @@ public class SuspendPanel : BasePanel
     public void OnClosePanel()
     {
         UIManager.Instance.PanelPop();
+        GameObject.Find("GamePanel(Clone)").GetComponent<GamePanel>().isPause = false;
     }
     /// <summary>
     /// 跳转至指定UI面板

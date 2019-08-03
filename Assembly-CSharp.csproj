@@ -85,6 +85,10 @@
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\Ability\BossSlice.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\Ability\zMashterA2.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\Ability\zMasterA3.cs" />
+    <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\Ability\zSelf_Shade.cs" />
+    <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\Ability\zSelfCheck.cs" />
+    <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\Ability\zSelfShow.cs" />
+    <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\zBossShow.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\zEarthColler.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\zKnight.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\zMaster.cs" />
@@ -94,6 +98,7 @@
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zNormal\zHedgehog.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zNormal\zPaangolin_Effection.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zNormal\zPangolin.cs" />
+    <Compile Include="Assets\Chanmao\Chanmao\Script\player\PlayerDate.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\player\zPlayer.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\player\ZSlice.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\PlayerCnotroller.cs" />
@@ -107,6 +112,10 @@
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\Audios\AudioManager.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\File\FileData.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\File\FileInfo.cs" />
+    <Compile Include="Assets\QingFeng\QingFeng\Scritps\Map\ChangeCG.cs" />
     <Compile Include="Assets\QingFeng\QingFeng\Scritps\Map\DarkEffect.cs" />
     <Compile Include="Assets\QingFeng\QingFeng\Scritps\Map\EndPoint.cs" />
     <Compile Include="Assets\QingFeng\QingFeng\Scritps\Map\FilePoint.cs" />
@@ -120,7 +129,6 @@
     <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIFrameWork\Panel\UIPanelInfo.cs" />
     <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIFrameWork\Panel\UIPanelType.cs" />
     <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIPanel\BackMenuPanel.cs" />
-    <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIPanel\ChangeCG.cs" />
     <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIPanel\CleanFilePanel.cs" />
     <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIPanel\FilePanel.cs" />
     <Compile Include="Assets\QingFeng\QingFeng\Scritps\UIPanel\GamePanel.cs" />

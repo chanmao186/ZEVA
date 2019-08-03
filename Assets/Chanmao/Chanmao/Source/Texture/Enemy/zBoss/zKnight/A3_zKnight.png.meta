@@ -1,0 +1,358 @@
+fileFormatVersion: 2
+guid: 428b78bdee71720458c95828b51781ef
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3423172525926288412
+    second: A3_zKnight_0
+  - first:
+      213: 5604683509936838987
+    second: A3_zKnight_1
+  - first:
+      213: -7963063752103951022
+    second: A3_zKnight_2
+  - first:
+      213: -5424087199272848600
+    second: A3_zKnight_3
+  - first:
+      213: -4341692915587423619
+    second: A3_zKnight_4
+  - first:
+      213: -6081373071992967820
+    second: A3_zKnight_5
+  - first:
+      213: -312267391905002450
+    second: A3_zKnight_6
+  - first:
+      213: 31885234160069586
+    second: A3_zKnight_7
+  - first:
+      213: -923959464914162497
+    second: A3_zKnight_8
+  - first:
+      213: 7219443138304997658
+    second: A3_zKnight_9
+  - first:
+      213: -6253845392088237347
+    second: A3_zKnight_10
+  - first:
+      213: 9100668238317876332
+    second: A3_zKnight_11
+  - first:
+      213: -8647983368028068576
+    second: A3_zKnight_12
+  - first:
+      213: 3902528902250495220
+    second: A3_zKnight_13
+  - first:
+      213: 7161052488923830753
+    second: A3_zKnight_14
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: A3_zKnight_0
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 478
+        width: 825
+        height: 779
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ae50fe608515944c92aa13310bb8d14
+      internalID: -3423172525926288412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: A3_zKnight_1
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 317
+        width: 679
+        height: 1035
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee54516d5cf14fb489ba622394995714
+      internalID: 5604683509936838987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: A3_zKnight_2
+      rect:
+        serializedVersion: 2
+        x: 2907
+        y: 330
+        width: 697
+        height: 1051
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c4da19e19111f4438e0a8d12c94837a
+      internalID: -7963063752103951022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: A3_zKnight_3
+      rect:
+        serializedVersion: 2
+        x: 4318
+        y: 234
+        width: 725
+        height: 1064
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a30ad6efbe6fac4f91858527f757ea9
+      internalID: -5424087199272848600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: A3_zKnight_4
+      rect:
+        serializedVersion: 2
+        x: 5570
+        y: 222
+        width: 784
+        height: 1081
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb5ce42e83695c149b50bd7404b89534
+      internalID: -4341692915587423619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: A3_zKnight_5
+      rect:
+        serializedVersion: 2
+        x: 7004
+        y: 263
+        width: 779
+        height: 1077
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2340057b4847558478bd6425c60cbe08
+      internalID: -6081373071992967820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: A3_zKnight_6
+      rect:
+        serializedVersion: 2
+        x: 8486
+        y: 263
+        width: 691
+        height: 1082
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dea50bf8a21224468c90edade5151a1
+      internalID: -312267391905002450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: A3_zKnight_8
+      rect:
+        serializedVersion: 2
+        x: 9873
+        y: 175
+        width: 691
+        height: 1227
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 011a714aa84c01b408a61400a8cc38b0
+      internalID: -923959464914162497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: A3_zKnight_9
+      rect:
+        serializedVersion: 2
+        x: 11013
+        y: 147
+        width: 696
+        height: 1027
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4e4da107ba8d924fb3a5a84c37c712d
+      internalID: 7219443138304997658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: A3_zKnight_14
+      rect:
+        serializedVersion: 2
+        x: 9934
+        y: 0
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c7869c8b95d0d046be2240e47bc82cd
+      internalID: 7161052488923830753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -239,7 +239,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2484816672020383003}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.85, y: 0.14, z: 0}
+  m_LocalPosition: {x: -10.58, y: 0.14, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 2484816673061308895}
@@ -430,6 +430,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -442,7 +443,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -7715175465542300476, guid: 2e76259cb67b3244fa259037ae91deef,
+  m_Sprite: {fileID: -7715175465542300476, guid: e7b0fd405de713544a26713f827b37c6,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -466,19 +467,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 869f6afabec6f81458fc319c5cadabdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   zc: {fileID: 0}
   Heath: 2
+  AttackedForce: 0
   Strenth: 1
   WalkSpeed: 5
   RunSpeed: 5
   Weapon: {fileID: 0}
   Head: {fileID: 0}
   foot: {fileID: 0}
-  isGrivaty: 1
-  Grivaty: 9
   DestroyTime: 3
   Player: {fileID: 0}
   AbilityTime: 0.5
+  AvoidSameAbility: 0
   AbilityNumber: 2
   PreAbilityTime: 0.3
   HideTime: 1
@@ -502,6 +508,7 @@ MonoBehaviour:
   A2Prefab: {fileID: 7520318125696046734, guid: f5a3377dc35bf9a44b44bab2d49094f7,
     type: 3}
   A2Interval: 2
+  A2Interval1: 1
   A3Pos:
   - {fileID: 986547739}
   - {fileID: 1392021888}
@@ -522,14 +529,14 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.1299996, y: 9.610599}
+    oldSize: {x: 7.1416845, y: 9.62}
     newSize: {x: 9.38, y: 8.0341015}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

@@ -9,6 +9,8 @@ using DG.Tweening;
 
 public class UIManager {
 
+    public int clearFileNum=-1;
+    public int nowFileNum = -1;
     //使用单例模式管理UI
     private static UIManager _instance;
     public static UIManager Instance {

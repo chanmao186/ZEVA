@@ -94,10 +94,10 @@ public class zBoss : zEnemy
                 currentA = Random.Range(0, AbilityNumber);
             }
             lastA = currentA;
-        }        
-        //Random.Range(0, AbilityNumber)
+        }
+        Debug.Log("释放技能" + (currentA + 1));      //Random.Range(0, AbilityNumber)
         //随机释放一个技能Random.Range(0, AbilityNumber)
-        switch (1)
+        switch (currentA)
         {
             case 0:
                 Ability1();

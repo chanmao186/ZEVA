@@ -1,11 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CanmeraMove : MonoBehaviour
 {
-
+    [Header("摄像机要跟踪的目标")]
     public Transform target;
+
+    public float OffX = 0;
+    
+    public float OffY = 0;
+    
     [Header("摄像机向左移动的最大距离")]
     public float Left;
 
@@ -30,7 +33,8 @@ public class CanmeraMove : MonoBehaviour
     private void Move()
     {
         targetPos = target.position;
-
+        targetPos.x += OffX;
+        targetPos.y += OffY;
         //检测相机是否在游戏场景内
         if (targetPos.x <= Left) targetPos.x = Left;
         else if (targetPos.x >= Right) targetPos.x = Right;

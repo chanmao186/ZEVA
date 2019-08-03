@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Undefined
   - Ground
+  - DragNode
+  - EnemyAbility
   layers:
   - Default
   - TransparentFX
@@ -22,7 +24,7 @@ TagManager:
   - Postprocessing
   - 
   - 
-  - 
+  - Enemy
   - 
   - 
   - 

@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class FilePanel : BasePanel 
 {
     private CanvasGroup canvasGroup;
     public bool isDisPlay = false;          //面板是否显示
     public float AnimSpeed = 1;            //动画播放时间
+    public FileData fileData;
 
     public void Awake()
     {
+        fileData = GetComponent<FileData>();
         canvasGroup = GetComponent<CanvasGroup>();
         canvasGroup.alpha = 0;
+
     }
 
     /// <summary>
@@ -69,6 +74,7 @@ public class FilePanel : BasePanel
     //面板基本状态
     public override void OnEnter()
     {
+        OnClosePanel();
         PanelAnim();
     }
     public override void OnExit()
@@ -87,9 +93,28 @@ public class FilePanel : BasePanel
     /// <summary>
     /// 加载存档
     /// </summary>
-    public void LoadData()
+    public void ReadFile(int index)
     {
-        Debug.Log("加载存档");
+        if (fileData.fileInfo[index ].isSafe == true)
+        {
+            OnClosePanel();
+            OnPushPanel("Game");
+            AudioManager.Instance.StopBGM(0);
+            fileData.ReadFile(index);
+            UIManager.Instance.nowFileNum = index;
+        }else 
+        {
+            OnClosePanel();
+            OnPushPanel("Main");
+        }
+    }
+    /// <summary>
+    /// 清除存档
+    /// </summary>
+    /// <param name="index"></param>
+    public void ClearFile(int index)
+    {
+        UIManager.Instance.clearFileNum = index;
     }
     
 }

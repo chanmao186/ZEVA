@@ -144,4 +144,29 @@ public class zColor : MonoBehaviour
         }
         CallBack?.Invoke();
     }
+
+    /// <summary>
+    /// 颜色淡出
+    /// </summary>
+    /// <param name="node"></param>
+    /// <param name="time"></param>
+    /// <param name="Target"></param>
+    /// <param name="CallBack"></param>
+    /// <returns></returns>
+    public Coroutine ColorOut(SpriteRenderer node, float time, Color Target, Func CallBack)
+    {
+        Color value = (Target-node.color  )/time * Time.deltaTime;
+        return StartCoroutine(ColorOut1(node,value,Target,CallBack));
+    }
+    private IEnumerator ColorOut1(SpriteRenderer node,Color Value,Color Target,Func CallBack)
+    {
+        while (node.color.r<Target.r)
+        {
+            //Debug.Log(node.name+Value);
+
+            node.color += Value;
+            yield return 0;
+        }
+        CallBack?.Invoke();
+    }
 }

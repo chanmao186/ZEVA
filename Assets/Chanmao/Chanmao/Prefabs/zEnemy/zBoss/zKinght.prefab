@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 286915377}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SwordThrowPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1505525979}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: A2Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 812077721261512481}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: LeftPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812077721261512480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.59, y: 0, z: 0}
+  m_LocalPosition: {x: -14.88, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 812077722414766150}
@@ -99,7 +99,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 812077721873136997}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 812077722053330322}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: OriginPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 812077722061852605}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,9 +189,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 812077722168761985}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: zKinght
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -221,7 +221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 812077722414766150}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: PatrolPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 812077722432170128}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: RightPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812077722432170143}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.51, y: 0, z: 0}
+  m_LocalPosition: {x: 13.14, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 812077722414766150}
@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 812077722470309215}
   - component: {fileID: 6841537967983201269}
   - component: {fileID: 910346986530256333}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +359,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 812077722474442167}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Piont
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,7 +391,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 812077722484783026}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: HidePos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 812077722896541159}
   - component: {fileID: 812077722896541177}
   - component: {fileID: 812077722896541180}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: zKinght
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -442,7 +442,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812077722896541158}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 8.14, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children:
   - {fileID: 812077722470309215}
@@ -477,6 +477,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -489,7 +490,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 8793160908468363729, guid: 71bffe5d507aaa44690899f7828b379c,
+  m_Sprite: {fileID: 7219443138304997658, guid: 428b78bdee71720458c95828b51781ef,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -518,7 +519,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.770001, y: 10.753029}
+    oldSize: {x: 6.974491, y: 10.2699995}
     newSize: {x: 9.38, y: 8.0341015}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -558,6 +559,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b42fe03e760f8d429c4879633cdf8d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   zc: {fileID: 0}
   Heath: 2
   AttackedForce: 0
@@ -621,7 +627,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 812077723007326353}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

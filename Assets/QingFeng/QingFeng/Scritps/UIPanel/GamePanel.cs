@@ -11,11 +11,57 @@ public class GamePanel : BasePanel
     public Text tip;
     public bool isOpenTip;
 
+    public List<Image> healths;
+    public FileData file;
+    public int healthCur = 0;
+    public bool isPause=false ;
+    public void ReduceHealth()
+    {
+        if (healthCur==0)
+        {
+            healths[healthCur].color = new Color(0.3f, 0.3f, 0.3f);
+        }else if (healthCur >0)
+        {
+            healths[healthCur].color = new Color(0.3f, 0.3f, 0.3f);
+            healthCur--;
+        }
+    }
+    public void RaiseHealth()
+    {
+        if (healthCur <4)
+        {
+            healthCur++;
+            healths[healthCur].color = Color.white ;
+        }
+    }
+
     public void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
+        file = GetComponent<FileData>();
     }
-
+    public void Start()
+    {
+        
+    }
+    public void Update()
+    {
+        if (Input.GetKeyDown (KeyCode.Escape)&&isPause ==false )
+        {
+            isPause = true;
+            OnClosePanel();
+            PauseGame();
+            OnPushPanel("Suspend");
+        }
+        if (Input .GetKeyDown(KeyCode.J))
+        {
+            ReduceHealth();
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            RaiseHealth();
+        }
+    }
     public void TipChange(string str)
     {
         isOpenTip = true;
@@ -60,6 +106,7 @@ public class GamePanel : BasePanel
     /// </summary>
     private void PanelDisplay()
     {
+       
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1;
     }

@@ -14,18 +14,22 @@ public class MainPanel : BasePanel
     public void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
-        image = GameObject.Find("DarkEffect").GetComponent <Image >();
-        audioNum = AudioManager.Instance.Init(audio, false);
-        AudioManager.Instance.PlayBGM(audioNum);
         canvasGroup.alpha = 0;
     }
 
+    public void Start()
+    {
+        image = GameObject.Find("DarkEffect").GetComponent<Image>();
+        audioNum = AudioManager.Instance.Init(audio, false);
+        AudioManager.Instance.PlayBGM(audioNum);
+    }
     /// <summary>
     /// 当前面板关闭
     /// </summary>
     public void OnClosePanel()
     {
         UIManager.Instance.PanelPop();
+
     }
     /// <summary>
     /// 跳转至指定UI面板
@@ -43,15 +47,8 @@ public class MainPanel : BasePanel
     /// </summary>
     private void PanelAnim()
     {
-        isDisPlay = !isDisPlay;
-        if(isDisPlay)
-        {
-            Tween tween = canvasGroup.DOFade(1, AnimSpeed );
-            tween.OnComplete(PanelDisplay);
-        }else
-        {
-            PanelHide();
-        }
+        Tween tween = canvasGroup.DOFade(1, AnimSpeed );
+        tween.OnComplete(PanelDisplay);       
     }
 
     /// <summary>
@@ -65,7 +62,7 @@ public class MainPanel : BasePanel
     /// <summary>
     /// 当前面板隐藏
     /// </summary>
-    private void PanelHide()
+    public void PanelHide()
     {
         canvasGroup.blocksRaycasts = false;
         canvasGroup.alpha = 0;
@@ -82,11 +79,11 @@ public class MainPanel : BasePanel
     }
     public override void OnExit()
     {
-        PanelAnim();
+        PanelHide();
     }
     public override void OnPause()
     {
-        PanelAnim();
+        PanelHide();
     }
    
 
@@ -97,6 +94,20 @@ public class MainPanel : BasePanel
     {
         OnClosePanel();
         AudioManager.Instance.StopBGM(audioNum);
+        
+        foreach (FileInfo file in GameObject.Find ("UIManager") .GetComponent<FileData>().fileInfo )
+        {
+            if (!file.isSafe)
+            {
+                UIManager.Instance.nowFileNum = file.fileNum;
+                Debug.Log("开始游戏，保存为存档："+file.fileNum);
+                break;
+            }
+            if (UIManager.Instance.nowFileNum == -1)
+            {
+                UIManager.Instance.nowFileNum = 0;
+            }
+        }
         OnPushPanel("PictureBook");
     }
     

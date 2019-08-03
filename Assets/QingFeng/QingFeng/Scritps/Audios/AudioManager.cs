@@ -53,14 +53,14 @@ public class AudioManager : MonoBehaviour
         {
             audioEffect.Add(audio);
             audio.volume = effectVolume/100 * totalVolume / 100;
-            Debug.Log(audio + ":已加入音效池"+ audioEffect.Count);
+            //Debug.Log(audio + ":已加入音效池"+ audioEffect.Count);
             return audioEffect.Count-1;
             
         }else
         {
             audioBGM.Add(audio);
             audio.volume = bgmVolume/100 * totalVolume / 100;
-            Debug.Log(audio + "：已加入背景音乐池"+audioBGM.Count);
+            //Debug.Log(audio + "：已加入背景音乐池"+audioBGM.Count);
             return audioBGM .Count-1;
         }
     }

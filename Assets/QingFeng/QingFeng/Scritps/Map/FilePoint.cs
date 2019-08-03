@@ -9,18 +9,24 @@ public class FilePoint : MonoBehaviour
     public GamePanel gamePanel;
     public Transform player;
     public bool isOpen = false;
-
+    public FileData file;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R)&&isOpen)
         {
-            gamePanel.TipsHide();
-            gamePanel.TipChange(tipStr);
+
+            file.SafeFile(UIManager.Instance.nowFileNum);
         }
+    }
+    public void SafeComp()
+    {
+        gamePanel.TipsHide();
+        gamePanel.TipChange(tipStr);
     }
 
     private void Start()
     {
+        file = GetComponent<FileData>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         gamePanel = GameObject.Find("GamePanel(Clone)").GetComponent<GamePanel>();
     }
