@@ -407,12 +407,12 @@ PrefabInstance:
     - target: {fileID: 6577061321779227255, guid: 2381e9c55741f6a4d92eb9b43cd1c02e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.4
+      value: -9.7
       objectReference: {fileID: 0}
     - target: {fileID: 6577061321779227255, guid: 2381e9c55741f6a4d92eb9b43cd1c02e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.47
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6577061321779227255, guid: 2381e9c55741f6a4d92eb9b43cd1c02e,
         type: 3}
@@ -464,6 +464,11 @@ PrefabInstance:
       propertyPath: zc
       value: 
       objectReference: {fileID: 457602574}
+    - target: {fileID: 9195267064575846757, guid: 2381e9c55741f6a4d92eb9b43cd1c02e,
+        type: 3}
+      propertyPath: Heath
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2381e9c55741f6a4d92eb9b43cd1c02e, type: 3}
 --- !u!4 &71567729 stripped
@@ -4712,8 +4717,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 71567729}
-  OffX: 0
-  OffY: 0
+  OffX: 4
+  OffY: 5
   Left: -16.7
   Right: 5.7
   Botton: -100
@@ -8791,6 +8796,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8912196254461568486, guid: 7409dfc6b956be0499e8c8211251ff9c,
+        type: 3}
+      propertyPath: AbilityPoint.Array.data[1]
+      value: 
+      objectReference: {fileID: 1817115796}
+    - target: {fileID: 8912196254461568486, guid: 7409dfc6b956be0499e8c8211251ff9c,
+        type: 3}
+      propertyPath: AbilityPoint.Array.data[2]
+      value: 
+      objectReference: {fileID: 383125790}
+    - target: {fileID: 8912196254461568486, guid: 7409dfc6b956be0499e8c8211251ff9c,
+        type: 3}
+      propertyPath: AbilityNumber
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8912196254461568505, guid: 7409dfc6b956be0499e8c8211251ff9c,
         type: 3}
       propertyPath: m_IsActive
@@ -8835,21 +8855,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 8912196254461568486, guid: 7409dfc6b956be0499e8c8211251ff9c,
-        type: 3}
-      propertyPath: AbilityPoint.Array.data[1]
-      value: 
-      objectReference: {fileID: 1817115796}
-    - target: {fileID: 8912196254461568486, guid: 7409dfc6b956be0499e8c8211251ff9c,
-        type: 3}
-      propertyPath: AbilityPoint.Array.data[2]
-      value: 
-      objectReference: {fileID: 383125790}
-    - target: {fileID: 8912196254461568486, guid: 7409dfc6b956be0499e8c8211251ff9c,
-        type: 3}
-      propertyPath: AbilityNumber
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7409dfc6b956be0499e8c8211251ff9c, type: 3}

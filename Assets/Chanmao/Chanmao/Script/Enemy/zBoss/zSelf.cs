@@ -60,6 +60,7 @@ public class zSelf : zBoss
     protected override void Ability2()
     {
         AFun(Random.Range(0, 3), () => {
+            SetSliceOrignPos(A2SlicePoint[0]);
             for (int i = 1; i < 4; i++)
             {
                 Slice.SetSlicePoint(A2SlicePoint[i].position);

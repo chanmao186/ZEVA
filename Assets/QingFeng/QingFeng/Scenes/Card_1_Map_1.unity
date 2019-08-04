@@ -8162,6 +8162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 235236957}
+  OffX: 4
+  OffY: 4
   Left: -4.6
   Right: 29
   Botton: -3
@@ -19911,6 +19913,7 @@ MonoBehaviour:
   audioManager: {fileID: 0}
   fileData: 
   point: {fileID: 0}
+  health: 0
 --- !u!1 &944171225
 GameObject:
   m_ObjectHideFlags: 0
@@ -38330,6 +38333,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3823025423046727516, guid: 564d1477d799e8d4da142d9057899469,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3823025421509977344, guid: 564d1477d799e8d4da142d9057899469,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38383,11 +38391,6 @@ PrefabInstance:
     - target: {fileID: 3823025421509977344, guid: 564d1477d799e8d4da142d9057899469,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3823025423046727516, guid: 564d1477d799e8d4da142d9057899469,
-        type: 3}
-      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -549,7 +549,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   zc: {fileID: 0}
-  Heath: 1
+  Heath: 7
   AttackedForce: 0
   Strenth: 1
   WalkSpeed: 5
@@ -581,6 +581,7 @@ MonoBehaviour:
   A3Effection: {fileID: 0}
   A3IdleTime: 0.3
   SwrodPoint: {fileID: 286915377}
+  SwordSpeed: 15
 --- !u!50 &812077722896541180
 Rigidbody2D:
   serializedVersion: 4

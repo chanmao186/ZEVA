@@ -25,6 +25,8 @@ public class zKnight : zBoss
     [Header("骑士的剑的投掷点")]
     public Transform SwrodPoint;
 
+    [Header("剑的飞行速度")]
+    public float SwordSpeed = 15;
     
     protected override void Start()
     {
@@ -107,7 +109,7 @@ public class zKnight : zBoss
         {
             sword.SetActive(true);
             BossPos.y -= Hight;
-            action = zc.zMove.MoveToPosition(new Vector2(SwrodPoint.position.x, SwrodPoint.position.y-Hight), 10, () =>
+            action = zc.zMove.MoveToPosition(new Vector2(SwrodPoint.position.x, SwrodPoint.position.y-Hight), SwordSpeed, () =>
             {
                 _time = zc.zTime.ScheduleOnce(() =>
                 {

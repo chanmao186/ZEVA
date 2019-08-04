@@ -474,7 +474,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   zc: {fileID: 0}
-  Heath: 2
+  Heath: 1
   AttackedForce: 0
   Strenth: 1
   WalkSpeed: 5

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7520318125696046737}
   - component: {fileID: 7520318125696046741}
   - component: {fileID: 7520318125696046738}
+  - component: {fileID: 1908969971251635848}
   m_Layer: 0
   m_Name: IceExpore
   m_TagString: Untagged
@@ -144,3 +145,16 @@ MonoBehaviour:
   - Player
   Hurt: 1
   isDestroy: 0
+--- !u!114 &1908969971251635848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7520318125696046734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f68eea69d9366d41a467dbcf11130db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PreTime: 0.5

@@ -64,5 +64,11 @@ public class zEnemy : CCharacter
             GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<zHurt>().enabled = false;
         }
+
+        zc.zTime.ScheduleOnce(() => {
+            Destroy(gameObject);
+        }, 0.5f);
     }
+
+    
 }

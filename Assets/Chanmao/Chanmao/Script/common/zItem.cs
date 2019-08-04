@@ -36,7 +36,7 @@ public class zItem : MonoBehaviour
     }
     protected virtual void AttackedEffection(Transform AttackPoint)
     {
-        Debug.Log(transform.name+"被攻击了");       
+          
     }
     protected virtual void DeathEffection() {
         Debug.Log(transform.name+"死亡");
@@ -73,8 +73,8 @@ public class zItem : MonoBehaviour
     public void Attacked(float Hurt, Transform AttackPoint)
     {
         if (!isReceiveHurt) { return; }
-        Debug.Log("受到" + Hurt + "伤害");
-
+        //Debug.Log("受到" + Hurt + "伤害");
+        Debug.Log(transform.name + "被攻击了" + "受到" + Hurt + "伤害");
         _Heath -= Hurt;
 
         Debug.Log(transform.name + "当前的血量为:" + _Heath);

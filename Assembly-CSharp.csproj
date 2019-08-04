@@ -62,11 +62,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Chanmao\Chanmao\Script\Abandon\Character.cs" />
-    <Compile Include="Assets\Chanmao\Chanmao\Script\Abandon\EnemyCommon.cs" />
-    <Compile Include="Assets\Chanmao\Chanmao\Script\Abandon\PlayAnimation.cs" />
-    <Compile Include="Assets\Chanmao\Chanmao\Script\Abandon\PlayerMove.cs" />
-    <Compile Include="Assets\Chanmao\Chanmao\Script\Abandon\zMove.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Camer\CanmeraMove.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\common\CCharacter.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\common\ZCheck.cs" />
@@ -84,6 +79,7 @@
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBase\zNormalEnemy.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\Ability\BossSlice.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\Ability\ClassTest.cs" />
+    <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\Ability\zDeathLimited.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\Ability\zMashterA2.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\Ability\zMasterA3.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\Ability\zSelf_Shade.cs" />
@@ -106,6 +102,7 @@
     <Compile Include="Assets\Chanmao\Chanmao\Script\temp\CommandBufferBlur.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\TiggerTest.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\UI\Drag.cs" />
+    <Compile Include="Assets\Chanmao\Chanmao\Script\UI\zBuff.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />

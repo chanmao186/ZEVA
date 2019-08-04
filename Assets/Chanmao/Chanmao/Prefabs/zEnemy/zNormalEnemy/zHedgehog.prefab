@@ -428,7 +428,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   zc: {fileID: 0}
   Heath: 2
-  AttackedForce: 0
+  AttackedForce: 400
   Strenth: 1
   WalkSpeed: 3
   RunSpeed: 2

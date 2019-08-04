@@ -13,15 +13,22 @@ public class zHurt : MonoBehaviour
     [Header("是否销毁自身")]
     public bool isDestroy = false;
 
+    public AudioSource AttackedAudio;
 
+    private void Start()
+    {
+        AttackedAudio = GetComponent<AudioSource>();
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         foreach (string tag in AttackedTag)
         {
             if (collision.transform.CompareTag(tag))
             {
-                if (collision.transform.GetComponent<CCharacter>())
-                    collision.transform.GetComponent<CCharacter>().Attacked(Hurt, transform);
+                if (AttackedAudio)
+                    AttackedAudio.Play();
+                if (collision.transform.GetComponent<zItem>())
+                    collision.transform.GetComponent<zItem>().Attacked(Hurt, transform);
                 if (isDestroy)
                     Destroy(gameObject);
             }
@@ -33,12 +40,13 @@ public class zHurt : MonoBehaviour
         {
             if (collision.transform.CompareTag(tag))
             {
-                if(collision.GetComponent<CCharacter>())
-                    collision.GetComponent<CCharacter>().Attacked(Hurt,transform);
+                if (AttackedAudio)
+                    AttackedAudio.Play();
+                if (collision.GetComponent<zItem>())
+                    collision.GetComponent<zItem>().Attacked(Hurt, transform);
                 if (isDestroy)
                     Destroy(gameObject);
             }
         }
     }
-
 }

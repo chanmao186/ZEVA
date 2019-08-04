@@ -4,8 +4,6 @@ using UnityEngine;
 using LitJson;
 using System.IO;
 using System.Text;
-//using static Pathfinding.Util.GridLookup<T>;
-//using static Pathfinding.Util.GridLookup<T>;
 
 public enum PlayerState
 {
@@ -135,6 +133,30 @@ public class zPlayer : CCharacter
     }
 
     /// <summary>
+    /// 将json文件初始化
+    /// </summary>
+    public void InitJson()
+    {
+        PlayerData state = PlayerData.PlayerStates[1];
+        PlayerData Default = PlayerData.PlayerStates[0];
+
+        state._Heath = Default. _Heath;
+        state.Heath = Default. Heath;
+
+        state.SliceDistance = Default.SliceDistance;
+        state.SliceNum = Default.SliceNum;
+
+        string json = JsonMapper.ToJson(PlayerData.PlayerStates);
+
+        string JsonFilePath = Application.dataPath + "/Chanmao/Chanmao/Script/Json/PlayerData.json";
+        StreamWriter sw = File.CreateText(JsonFilePath);
+        sw.Close();
+        File.WriteAllText(JsonFilePath, json, Encoding.UTF8);
+
+        //将玩家的数据同步
+        JsonConfig();
+    }
+    /// <summary>
     /// 关卡结束，保存数据
     /// </summary>
     public void LevelEnd()
@@ -199,8 +221,8 @@ public class zPlayer : CCharacter
     /// <param name="type">0为配置为默认版本，1为配置为当前版本</param>
     private void _PlayerDateConfig(int type)
     {
-        //_Heath = PlayerData.PlayerStates[type]._Heath;
-        //Heath = PlayerData.PlayerStates[type].Heath;
+        _Heath = PlayerData.PlayerStates[type]._Heath;
+        Heath = PlayerData.PlayerStates[type].Heath;
 
         zs.SliceDistance = PlayerData.PlayerStates[type].SliceDistance;
         zs.SliceNum = PlayerData.PlayerStates[type].SliceNum;
@@ -271,10 +293,11 @@ public class zPlayer : CCharacter
                 Weapon.SetActive(false);
             }
 
-            if (!Ani.GetBool("JumpDown") || !Ani.GetBool("JumpUp"))
+            if (!Ani.GetBool("JumpDown") && !Ani.GetBool("JumpUp"))
             {
                 AudioManager.Instance.PlayEffect(WalkAudioNum);
             }
+           
 
             checkturn = Direction;
             transform.Translate(Vector2.right * WalkSpeed * rs * Direction * Time.deltaTime, Space.World);
@@ -441,6 +464,7 @@ public class zPlayer : CCharacter
         //else 
         if (Input.GetMouseButton(1) && !isGround && SliceNum == 0)
         {
+            _rigidbody2D.velocity = new Vector2(0, 0);
             zs.SetSlicePoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
             SliceNum++;
             SliceStart();
@@ -602,6 +626,7 @@ public class zPlayer : CCharacter
         SetOperationState(false);
     }
 
+
     /// <summary>
     /// 获得玩家的朝向
     /// </summary>
@@ -609,5 +634,16 @@ public class zPlayer : CCharacter
     public int GetDirection()
     {
         return Direction;
+    }
+
+    /// <summary>
+    /// 角色立刻死亡死亡
+    /// </summary>
+    public void PlayerToDeath()
+    {
+        Debug.Log("玩家摔死了");
+        //CurrentState = PlayerState.Death;
+        _Heath = 0;
+        Death();
     }
 }
