@@ -29,6 +29,8 @@ public class zKnight : zBoss
     protected override void Start()
     {
         base.Start();
+        Debug.Log("骑士");
+        //Self = this as zKnight;
         //Ability2();
     }
 
@@ -130,4 +132,12 @@ public class zKnight : zBoss
             }, sword.transform);
         }, PreAbilityTime);
     }
+
+    protected override void DeathEffection()
+    {
+        base.DeathEffection();
+        Debug.Log("boss死亡，停止更新动作");
+        CurrentState = EnemyState.Death;
+    }
+
 }

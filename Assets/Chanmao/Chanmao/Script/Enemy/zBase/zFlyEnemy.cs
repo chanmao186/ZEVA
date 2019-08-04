@@ -11,6 +11,7 @@ public class zFlyEnemy : zNormalEnemy
     {
         base.Start();
         ai = GetComponent<AIPath>();
+        ai.maxSpeed = WalkSpeed;
         MoveTarget = GetComponent<AIDestinationSetter>();
     }
 
@@ -30,8 +31,4 @@ public class zFlyEnemy : zNormalEnemy
         MoveTarget.target = PatrolPoint[_TargetPointIndex];
     }
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

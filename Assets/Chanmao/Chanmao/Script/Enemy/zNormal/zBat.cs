@@ -11,11 +11,15 @@ public class zBat : zFlyEnemy
         base.Start();
     }
 
-    
-    
-    // Update is called once per frame
-    void Update()
+    protected override void PreAbility()
     {
-        
+        base.PreAbility();
+        Ani.SetInteger("Attack", 1);
+    }
+
+    protected override void Pursue()
+    {
+        base.Pursue();
+        Ani.SetInteger("Attack", 2);
     }
 }

@@ -37,7 +37,7 @@ public class zBoss : zEnemy
     [Header("游戏开始的时间")]
     public float StartTime = 1;
 
-    
+    protected EnemyState CurrentState;
     protected Vector2 BossPos;
 
     protected int lastA;
@@ -48,6 +48,7 @@ public class zBoss : zEnemy
     protected override void Start()
     {
         base.Start();
+        CurrentState = EnemyState.Ability;
         lastA = 100;
         BossPos = transform.position;
         PosY = BossPos.y;
@@ -64,6 +65,10 @@ public class zBoss : zEnemy
 
     protected virtual void AbilityEnd()
     {
+        if(CurrentState == EnemyState.Death)
+        {
+            return;
+        }
         zc.zTime.ScheduleOnce(() =>
         {
             //使节点移动到场景外
@@ -111,5 +116,14 @@ public class zBoss : zEnemy
         }
     }
 
-    
+    protected override void DeathEffection()
+    {
+        base.DeathEffection();
+        Debug.Log("boss死亡，停止更新动作");
+        CurrentState = EnemyState.Death;
+        //zc.zTime.StopSchedule(_time);
+        //主角不在受伤
+        //Player.GetComponent<zPlayer>().SetReciveHurtState(false);
+    }
+
 }

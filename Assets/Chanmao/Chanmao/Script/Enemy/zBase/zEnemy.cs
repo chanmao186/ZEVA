@@ -53,8 +53,10 @@ public class zEnemy : CCharacter
     protected override void DeathEffection()
     {
         base.DeathEffection();
+        if(zec)
         zec.EnemtCount();
 
+        Debug.Log("不对玩家造成伤害");
         //不在对玩家造成伤害
         if (GetComponent<zHurt>())
         {

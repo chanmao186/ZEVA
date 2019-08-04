@@ -61,11 +61,11 @@ public class CCharacter : zItem
         currentYSpeed = 0;
     }
 
-    protected override void DeathEffection()
-    {
-        base.DeathEffection();
-        //Ani.SetBool("Death", true);
-    }
+    //protected override void DeathEffection()
+    //{
+    //    base.DeathEffection();
+    //    //Ani.SetBool("Death", true);
+    //}
 
     
     //private void OnTriggerEnter2D(Collider2D collision)

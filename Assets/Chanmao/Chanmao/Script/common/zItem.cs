@@ -22,6 +22,7 @@ public class zItem : MonoBehaviour
     //小怪的动态生命值
     protected float _Heath;
 
+    //protected zItem Self;
     protected Rigidbody2D _rigidbody2D;
     protected virtual void Start()
     {
@@ -29,6 +30,7 @@ public class zItem : MonoBehaviour
         {
             zc = GameObject.Find("GameManager").GetComponent<ZController>();
         }
+        //Self = this;
         _Heath = Heath;
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
@@ -46,7 +48,8 @@ public class zItem : MonoBehaviour
     public virtual void Death()
     {
         ResetParameter();
-        Debug.Log("动作重置");
+        //Debug.Log("动作重置");
+        //_ = this as zBoss;
         DeathEffection();
     }
 

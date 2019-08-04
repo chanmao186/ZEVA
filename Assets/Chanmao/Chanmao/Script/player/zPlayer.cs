@@ -595,6 +595,7 @@ public class zPlayer : CCharacter
         // Debug.Log("执行死亡的动作" + Ani.GetBool("Death"));
         Ani.SetBool("Death", true);
 
+        Debug.Log("玩家死亡");
         CurrentState = PlayerState.Death;
 
         //Debug.Log("执行死亡的动作" + Ani.GetBool("Death"));

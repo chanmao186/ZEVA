@@ -283,7 +283,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 812077722470309215}
-  - component: {fileID: 6841537967983201269}
   - component: {fileID: 910346986530256333}
   m_Layer: 13
   m_Name: Body
@@ -308,22 +307,6 @@ Transform:
   m_Father: {fileID: 812077722896541179}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6841537967983201269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 812077722470309214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af7b9d4427dec1c4f9d01df7475582fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AttackedTag:
-  - Player
-  Hurt: 1
-  isDestroy: 0
 --- !u!61 &910346986530256333
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -331,7 +314,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812077722470309214}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -427,6 +410,7 @@ GameObject:
   - component: {fileID: 812077722896541159}
   - component: {fileID: 812077722896541177}
   - component: {fileID: 812077722896541180}
+  - component: {fileID: 6362046998707697434}
   m_Layer: 13
   m_Name: zKinght
   m_TagString: Enemy
@@ -515,7 +499,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -1.1894078, y: -0.6964102}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -526,7 +510,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.8100004, y: 10.196364}
+  m_Size: {x: 2.945509, y: 8.803545}
   m_EdgeRadius: 0
 --- !u!95 &812077722896541159
 Animator:
@@ -565,7 +549,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   zc: {fileID: 0}
-  Heath: 2
+  Heath: 1
   AttackedForce: 0
   Strenth: 1
   WalkSpeed: 5
@@ -618,6 +602,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6362046998707697434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812077722896541158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af7b9d4427dec1c4f9d01df7475582fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackedTag:
+  - Player
+  Hurt: 1
+  isDestroy: 0
 --- !u!1 &812077723007326352
 GameObject:
   m_ObjectHideFlags: 0

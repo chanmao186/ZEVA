@@ -1,0 +1,298 @@
+fileFormatVersion: 2
+guid: a66c9907ac499ab4cab2960b1f49acb0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1338567963842121115
+    second: Slice_Knight_0
+  - first:
+      213: -6670327378395935660
+    second: Slice_Knight_1
+  - first:
+      213: 7030641063105749835
+    second: Slice_Knight_2
+  - first:
+      213: -1483078847109735554
+    second: Slice_Knight_3
+  - first:
+      213: 2930087818677018199
+    second: Slice_Knight_4
+  - first:
+      213: 1207575973853381272
+    second: Slice_Knight_5
+  - first:
+      213: 2225720330506216936
+    second: Slice_Knight_6
+  - first:
+      213: 4199609394502045467
+    second: Slice_Knight_7
+  - first:
+      213: 5108354207170277438
+    second: Slice_Knight_8
+  - first:
+      213: -6203292958177815113
+    second: Slice_Knight_9
+  - first:
+      213: 8998470504732797322
+    second: Slice_Knight_10
+  - first:
+      213: 4623191635515662443
+    second: Slice_Knight_11
+  - first:
+      213: 478089027171264536
+    second: Slice_Knight_12
+  - first:
+      213: -5120856459405212065
+    second: Slice_Knight_13
+  - first:
+      213: 1520433166604294701
+    second: Slice_Knight_14
+  - first:
+      213: 3678555050145815490
+    second: Slice_Knight_15
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Slice_Knight_0
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 119
+        width: 694
+        height: 1022
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36bbb155af9fce745aeeae33ad9d25aa
+      internalID: -1338567963842121115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slice_Knight_1
+      rect:
+        serializedVersion: 2
+        x: 1669
+        y: 204
+        width: 735
+        height: 936
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2dbccc618c01f845a68f135d7815a6d
+      internalID: -6670327378395935660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slice_Knight_2
+      rect:
+        serializedVersion: 2
+        x: 3125
+        y: 213
+        width: 748
+        height: 937
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e2083f802352b84083dde7852d0fdbe
+      internalID: 7030641063105749835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slice_Knight_3
+      rect:
+        serializedVersion: 2
+        x: 4595
+        y: 298
+        width: 788
+        height: 942
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98c7cc6f5a6ecc0448f9f9763715ed71
+      internalID: -1483078847109735554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slice_Knight_4
+      rect:
+        serializedVersion: 2
+        x: 6109
+        y: 218
+        width: 775
+        height: 941
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c276c006800939c46a7137b2f37f0f10
+      internalID: 2930087818677018199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slice_Knight_5
+      rect:
+        serializedVersion: 2
+        x: 7615
+        y: 307
+        width: 1173
+        height: 942
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a96f25069520f3642850ec67f91f8fa5
+      internalID: 1207575973853381272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slice_Knight_15
+      rect:
+        serializedVersion: 2
+        x: 1965
+        y: 191
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1938ec9b55878b94fbe73555e5c7c682
+      internalID: 3678555050145815490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 0a81b8c96faeb9e429b5a51695cd89a7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
