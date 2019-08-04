@@ -10,6 +10,7 @@ public class GamePanel : BasePanel
     public Text text;
     public Text tip;
     public bool isOpenTip;
+    public bool isUp;
 
     public List<Image> healths;
     public FileData file;
@@ -17,49 +18,61 @@ public class GamePanel : BasePanel
     public bool isPause=false ;
     public void ReduceHealth()
     {
-        if (healthCur==0)
+        if (healthCur == 1)
         {
-            healths[healthCur].color = new Color(0.3f, 0.3f, 0.3f);
-        }else if (healthCur >0)
-        {
-            healths[healthCur].color = new Color(0.3f, 0.3f, 0.3f);
+            healths[healthCur - 1].color = new Color(0.3f, 0.3f, 0.3f);
             healthCur--;
+            file.ReadFile(UIManager.Instance.nowFileNum);
+            isUp = true;
+            return;
         }
+        healths[healthCur-1].color = new Color(0.3f, 0.3f, 0.3f);
+        healthCur--;
     }
     public void RaiseHealth()
     {
-        if (healthCur <4)
-        {
-            healthCur++;
-            healths[healthCur].color = Color.white ;
-        }
+        if (healthCur == 5)
+            return;
+        healths[healthCur].color = Color.white;
+        healthCur++;
     }
 
     public void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
-        file = GetComponent<FileData>();
+        file =GameObject.Find ("UIManager"). GetComponent<FileData>();
     }
     public void Start()
     {
-        
+        for (int i = 0; i <=file.health; i++)
+        {
+            healths[i].color = Color.white;
+            healthCur = i+1;
+            Debug.Log(i);
+        }
+    }
+    public void healthUD()
+    {
+        if (isUp)
+        {
+            for (int i = 0; i <= file.health; i++)
+            {
+                healths[i].color = Color.white;
+                healthCur = i + 1;
+                Debug.Log(i);
+            }
+            isUp = false;
+        }
     }
     public void Update()
     {
+        healthUD();
         if (Input.GetKeyDown (KeyCode.Escape)&&isPause ==false )
         {
             isPause = true;
             OnClosePanel();
             PauseGame();
             OnPushPanel("Suspend");
-        }
-        if (Input .GetKeyDown(KeyCode.J))
-        {
-            ReduceHealth();
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            RaiseHealth();
         }
     }
     public void TipChange(string str)

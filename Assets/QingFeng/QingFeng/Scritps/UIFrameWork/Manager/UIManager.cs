@@ -11,6 +11,7 @@ public class UIManager {
 
     public int clearFileNum=-1;
     public int nowFileNum = -1;
+
     //使用单例模式管理UI
     private static UIManager _instance;
     public static UIManager Instance {
@@ -144,4 +145,52 @@ public class UIManager {
     {
         GameObject.Find("DarkEffect").GetComponent<DarkEffect>().DarkDisPlay(callback);
     }
+    /// <summary>
+    /// 减少血量
+    /// </summary>
+    public void ReduceHP()
+    {
+        GameObject.Find("GamePanel(Clone)").GetComponent<GamePanel>().ReduceHealth();
+    }
+    /// <summary>
+    /// 读档
+    /// </summary>
+    public void ReadFile()
+    {
+        GameObject.Find("UIManager").GetComponent<FileData>().ReadFile(UIManager.Instance.nowFileNum );
+    }
+    
+    /// <summary>
+    /// 解锁石门
+    /// </summary>
+    public void UnlockStone()
+    {
+        Vector3 vector = GameObject.Find("StoneDoor").GetComponent<Transform>().position;
+        GameObject.Find("StoneDoor").GetComponent<Transform>().position = new Vector3(vector.x, vector.y+10, vector.z);
+    }
+
+    /// <summary>
+    /// 解锁传送门
+    /// </summary>
+    public void UnlockDoor()
+    {
+        GameObject.Find("Portal").GetComponent<Portal>().Unlock();
+    }
+    /// <summary>
+    /// 进入结尾
+    /// </summary>
+    public void GameEnd()
+    {
+        SceneManager.LoadScene("GameEnd");
+    }
+    
+    /// <summary>
+    /// 返回起始点位置
+    /// </summary>
+    /// <returns></returns>
+    public Vector3  GameStart()
+    {
+        return  GameObject.Find("StartPoint").GetComponent<Transform>().position;
+    }
 }
+

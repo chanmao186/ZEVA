@@ -84,6 +84,7 @@
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBase\zNormalEnemy.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\Ability\BossSlice.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\Ability\ClassTest.cs" />
+    <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\Ability\zDeathLimited.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\Ability\zMashterA2.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\Ability\zMasterA3.cs" />
     <Compile Include="Assets\Chanmao\Chanmao\Script\Enemy\zBoss\Ability\zSelf_Shade.cs" />

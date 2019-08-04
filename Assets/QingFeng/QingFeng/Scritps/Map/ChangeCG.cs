@@ -14,13 +14,14 @@ public class ChangeCG : MonoBehaviour
     public StoneTablet BG;
     public AudioSource audio;
     public int audioNum;
-
+    public List < Animator >anim;
+    public float  num;
     public void Awake()
     {
         BG = GameObject.Find("BG").GetComponent<StoneTablet>();
-        BG.tipStr = tips[index];
         audioNum = AudioManager.Instance.Init(audio, false);
         AudioManager.Instance.PlayBGM(audioNum);
+        anim[index].speed = 0;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -36,13 +37,17 @@ public class ChangeCG : MonoBehaviour
             SceneManager.LoadScene("Card_2_Map_4");
         }
     }
+    public void PlayAnim()
+    {
+        anim[index].speed = 1;
+    }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.collider.tag == "Player" )
         {
             index++;
-            BG.tipStr = tips[index];
             sprites[index].SetActive(true );
+            anim[index].speed =0;
         }
     }
 }

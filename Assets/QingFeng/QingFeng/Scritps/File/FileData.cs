@@ -12,16 +12,11 @@ public class FileData : MonoBehaviour
     public List <FileInfo> fileInfo;
     public GameObject audioManager;
     public string fileData;
-    public FilePoint point;
-    public int health=0;
+    public int health;
     private void Awake()
     {
         ParseFileJson();
         audioManager = GameObject.Find("AudioManager");
-        if (SceneManager.GetActiveScene ().name != "Init")
-        {
-            point = GetComponent<FilePoint>();
-        }
     }
     private void Update()
     {
@@ -39,7 +34,7 @@ public class FileData : MonoBehaviour
     public void WriteFileJson()
     {
         string json = JsonMapper.ToJson(fileInfo );
-        string filePath = Application.dataPath + "/Resources/FileData.json";
+        string filePath = Application.dataPath + "/QingFeng/QingFeng/Resources/FileData.json";
         StreamWriter sw = File.CreateText(filePath);
         sw.Close();
         File.WriteAllText(filePath, json, Encoding.UTF8);
@@ -59,9 +54,10 @@ public class FileData : MonoBehaviour
         info.bgmVolume = (int)audioManager.GetComponent<AudioManager>().bgmVolume;
         info.effectVolume = (int)audioManager.GetComponent<AudioManager>().effectVolume;
         info.scene = SceneManager.GetActiveScene().name;
-        info.health = health;
+        info.health = 4;
+        health = 4;
         WriteFileJson();
-        point.SafeComp();
+        GameObject.Find ("FilePoint").GetComponent <FilePoint >(). SafeComp();
     }
 
     public void ReadFile(int num )
@@ -77,7 +73,7 @@ public class FileData : MonoBehaviour
             audioManager.GetComponent<AudioManager>().bgmVolume=info.bgmVolume ;
             audioManager.GetComponent<AudioManager>().effectVolume=info.effectVolume ;
             health = info.health;
-            SceneManager.LoadScene (info.scene );
+            UIManager.Instance.DarkLoad(info.scene);
         }
     }
 

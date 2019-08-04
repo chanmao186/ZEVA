@@ -14,8 +14,8 @@ public class FilePoint : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R)&&isOpen)
         {
-
             file.SafeFile(UIManager.Instance.nowFileNum);
+            gamePanel.isUp = true;
         }
     }
     public void SafeComp()
@@ -26,7 +26,7 @@ public class FilePoint : MonoBehaviour
 
     private void Start()
     {
-        file = GetComponent<FileData>();
+        file = GameObject.Find ("UIManager"). GetComponent<FileData>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         gamePanel = GameObject.Find("GamePanel(Clone)").GetComponent<GamePanel>();
     }

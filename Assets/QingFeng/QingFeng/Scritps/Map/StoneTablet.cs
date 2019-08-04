@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StoneTablet : MonoBehaviour
 {
@@ -15,8 +16,17 @@ public class StoneTablet : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R)&&isOpen)
         {
-            gamePanel.TipsHide();
-            gamePanel.TipChange(tipStr);
+            if (SceneManager.GetActiveScene ().name == "Card_2_Map_3")
+            {
+                gamePanel.TipsHide();
+                GameObject.Find("EndPoint").GetComponent<ChangeCG>().PlayAnim();
+            }
+            else
+            {
+                gamePanel.TipsHide();
+                gamePanel.TipChange(tipStr);
+
+            }
         }
     }
 

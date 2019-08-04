@@ -10,10 +10,11 @@ public class FilePanel : BasePanel
     public bool isDisPlay = false;          //面板是否显示
     public float AnimSpeed = 1;            //动画播放时间
     public FileData fileData;
+    public List<Text> texts;
 
     public void Awake()
     {
-        fileData = GetComponent<FileData>();
+        fileData = GameObject.Find ("UIManager"). GetComponent<FileData>();
         canvasGroup = GetComponent<CanvasGroup>();
         canvasGroup.alpha = 0;
 
@@ -60,6 +61,7 @@ public class FilePanel : BasePanel
     private void PanelDisplay()
     {
         canvasGroup.blocksRaycasts = true;
+        UpdateFile();
     }
 
     /// <summary>
@@ -117,4 +119,18 @@ public class FilePanel : BasePanel
         UIManager.Instance.clearFileNum = index;
     }
     
+    public void UpdateFile()
+    {
+        foreach (FileInfo file in fileData.GetComponent<FileData>().fileInfo)
+        {
+            if (file.isSafe == true)
+            {
+                texts[file.fileNum].color = Color.white;
+            }
+            else
+            {
+                texts[file.fileNum].color = Color.clear;
+            }
+        }
+    }
 }

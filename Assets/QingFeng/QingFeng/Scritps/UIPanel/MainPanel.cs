@@ -8,7 +8,6 @@ public class MainPanel : BasePanel
     private CanvasGroup canvasGroup;        
     public  bool isDisPlay=false ;          //面板是否显示
     public float  AnimSpeed = 1;            //动画播放时间
-    public Image image;
     public AudioSource audio;
     public int audioNum;
     public void Awake()
@@ -19,7 +18,6 @@ public class MainPanel : BasePanel
 
     public void Start()
     {
-        image = GameObject.Find("DarkEffect").GetComponent<Image>();
         audioNum = AudioManager.Instance.Init(audio, false);
         AudioManager.Instance.PlayBGM(audioNum);
     }

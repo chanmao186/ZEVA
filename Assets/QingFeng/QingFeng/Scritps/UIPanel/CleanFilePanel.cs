@@ -13,7 +13,7 @@ public class CleanFilePanel : BasePanel
 
     public void Awake()
     {
-        fileData = GetComponent<FileData>();
+        fileData = GameObject.Find ("UIManager"). GetComponent<FileData>();
         canvasGroup = GetComponent<CanvasGroup>();
     }
 
@@ -98,5 +98,6 @@ public class CleanFilePanel : BasePanel
             return;
         }
         fileData.ClearFile(clearNum);
+        GameObject.Find("FilePanel(Clone)").GetComponent<FilePanel>().UpdateFile();
     }
 }
