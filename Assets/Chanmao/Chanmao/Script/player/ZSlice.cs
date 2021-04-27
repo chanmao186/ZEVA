@@ -280,5 +280,14 @@ public class ZSlice : MonoBehaviour
     {
         CoolTimeUpdate();
         IntervalTimeUpdate();
+        SeekzController();
+    }
+
+    private void SeekzController()
+    {
+        if (zm == null)
+        {
+            zm = GameObject.FindObjectOfType<ZController>();
+        }
     }
 }

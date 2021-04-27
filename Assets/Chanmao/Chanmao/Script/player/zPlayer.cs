@@ -7,7 +7,7 @@ using System.Text;
 
 public enum PlayerState
 {
-    Idle, Walk, Jump, Death, Attaked
+    Idle, Walk, Jump, Death, Attaked,Read
 }
 public class zPlayer : CCharacter
 {
@@ -36,10 +36,13 @@ public class zPlayer : CCharacter
     [Header("主角是否可以按R读取数据")]
     public bool CanRead = false;
 
+    [Header("主角是否可以存档")]
+    public bool CanSave = false;
+
     [Header("主角的奔跑速度")]
     public float runSpeed = 1.5f;
 
-    
+    //public bool isEffectionBySlice;
     //[Header("储存数据的文件")]
     //public JsonObject PlayData;
     [Header("跳起音效")]
@@ -90,7 +93,13 @@ public class zPlayer : CCharacter
     public Root PlayerData;
     private int SliceNum = 1;
 
-    
+    //private bool TransState = false;
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
+
     protected override void Start()
     {
         base.Start();
@@ -106,10 +115,18 @@ public class zPlayer : CCharacter
         CanJump1 = false;
         CanJump2 = true;
 
+        ResetParameter();
 
-        JsonConfig();
+        //JsonConfig();
         LevelStart();              
         AudioConfig();      
+    }
+
+    public void GameStart()
+    {
+        //UIManager.Instance.GameStart();
+        //Debug.Log(UIManager.Instance.GameStart());
+        transform.position = UIManager.Instance.GameStart();
     }
 
     private void JsonConfig()
@@ -221,7 +238,7 @@ public class zPlayer : CCharacter
     /// <param name="type">0为配置为默认版本，1为配置为当前版本</param>
     private void _PlayerDateConfig(int type)
     {
-        _Heath = PlayerData.PlayerStates[type]._Heath;
+        //_Heath = PlayerData.PlayerStates[type]._Heath;
         Heath = PlayerData.PlayerStates[type].Heath;
 
         zs.SliceDistance = PlayerData.PlayerStates[type].SliceDistance;
@@ -315,7 +332,7 @@ public class zPlayer : CCharacter
 
     bool HeadCheck()
     {
-        return zc.zCheck.Collider2DCheck(new Vector2(Head.position.x, Head.position.y), Vector2.up, 0.5f, "Ground", "Ground");
+        return zc.zCheck.Collider2DCheck(new Vector2(Head.position.x, Head.position.y), Vector2.up,0.5f, "Ground", "Ground");
     }
     private void CanJumpUpdate()
     {
@@ -420,52 +437,67 @@ public class zPlayer : CCharacter
     }
     private void FixedUpdate()
     {
-
         if (isOperation)
+        {
             Move();
+            Jump();
+            Attack();
+        }
+        else
+        {
+            OpearationAwake();
+        }
+        
+        CanJumpUpdate();
+        PlayJumpAimation();
+        SeekzController();
     }
 
 
     void Update()
     {
+        isGroundUpdate();
+        //GameStart();
         if (isOperation)
-        {
-            Jump();
-            ZSlice();
-            Attack();
+        {       
+            ZSlice();          
             ReadStroy();
         }
-        isGroundUpdate();
-        CanJumpUpdate();
-
-
-        PlayJumpAimation();
+        
     }
 
+    private void OpearationAwake()
+    {
+        if (CurrentState == PlayerState.Read)
+        {
+            if (Input.GetButton("Horizontal"))
+            {
+                CurrentState = PlayerState.Idle;
+                ReadStory_End();
+            }
+        }
+    }
+
+    private void SeekzController()
+    {
+        if (zc == null)
+        {
+            GameStart();
+            zc = GameObject.FindObjectOfType<ZController>();
+        }
+    }
     /// <summary>
     /// 鼠标开始执行切割的动作
     /// </summary>
     private void ZSlice()
     {
-        //if (zs.GetCurrentCoolTime() > 0) return;
-        //if (Input.GetButton("Space"))
-        //{
-        //    if (Input.GetMouseButtonDown(1))
-        //    {
-        //        zs.SetSlicePoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        //        SliceStart();
-        //    }
-        //}
-        //else if (Input.GetButtonUp("Space"))
-        //{
-        //    SliceStart();
-        //}
-        ////确保释放技能在冷却范围内
         //else 
         if (Input.GetMouseButton(1) && !isGround && SliceNum == 0)
         {
             _rigidbody2D.velocity = new Vector2(0, 0);
+            //Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
             zs.SetSlicePoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            
             SliceNum++;
             SliceStart();
         }
@@ -512,13 +544,22 @@ public class zPlayer : CCharacter
     /// </summary>
     private void ReadStroy()
     {
-        if (CanRead && Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.R))
         {
-            ResetParameter();
-            //播放转身的动画
-            Ani.SetInteger("Turn", 1);
-            //终止玩家的其他操作
-            isOperation = false;
+            if (CanRead)
+            {
+                ResetParameter();
+                //播放转身的动画
+                Ani.SetInteger("Turn", 1);
+                //终止玩家的其他操作
+                isOperation = false;
+                CurrentState = PlayerState.Read;
+            }
+            if (CanSave)
+            {
+                Debug.Log("游戏存档，血量回满");
+                _Heath = Heath;
+            }                      
         }
     }
 
@@ -579,6 +620,10 @@ public class zPlayer : CCharacter
         _rigidbody2D.velocity = new Vector2(0, 0);
         _rigidbody2D.gravityScale = 0;
         Ani.SetBool("Deathing", true);
+
+        Destroy(gameObject, 1);
+
+
     }
 
     /// <summary>
@@ -611,6 +656,11 @@ public class zPlayer : CCharacter
         }, 0.5f);
 
         zc.zTime.ScheduleOnce(() => { SetReciveHurtState(true); }, InvincibleTime);
+
+        Debug.Log("玩家被攻击");
+
+        //if (!isReceiveHurt) { return; }
+        UIManager.Instance.ReduceHP();
     }
 
     protected override void DeathEffection()
@@ -622,8 +672,14 @@ public class zPlayer : CCharacter
         Debug.Log("玩家死亡");
         CurrentState = PlayerState.Death;
 
+        UIManager.Instance.ReduceHP();
         //Debug.Log("执行死亡的动作" + Ani.GetBool("Death"));
         SetOperationState(false);
+
+        zc.zTime.ScheduleOnce(() => {
+            ResetParameter();
+        }, 0.5f);
+        _Heath = Heath;
     }
 
 
@@ -643,7 +699,9 @@ public class zPlayer : CCharacter
     {
         Debug.Log("玩家摔死了");
         //CurrentState = PlayerState.Death;
-        _Heath = 0;
-        Death();
+        //_Heath = 0;
+        UIManager.Instance.ReadFile();
+        _Heath = Heath;
+        //Death();
     }
 }

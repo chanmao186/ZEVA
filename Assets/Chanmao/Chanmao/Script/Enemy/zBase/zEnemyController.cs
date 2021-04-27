@@ -24,8 +24,11 @@ public class zEnemyController : MonoBehaviour
         if (isCount)
         {
             EnemyNum--;
+            Debug.Log("怪物死亡1只，还剩" + EnemyNum);
             if (EnemyNum == 0)
             {
+                
+                //UIManager.Instance.UnlockStone();
                 EnemyEmpty?.Invoke();
             }
         }

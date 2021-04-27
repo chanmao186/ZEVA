@@ -18,7 +18,7 @@ public class zItem : MonoBehaviour
     public float AttackedForce = 0;
 
     [Header("是否受到伤害")]
-    protected bool isReceiveHurt = true;
+    public bool isReceiveHurt = true;
     //小怪的动态生命值
     protected float _Heath;
 
@@ -35,8 +35,7 @@ public class zItem : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
     protected virtual void AttackedEffection(Transform AttackPoint)
-    {
-          
+    {          
     }
     protected virtual void DeathEffection() {
         Debug.Log(transform.name+"死亡");
@@ -73,6 +72,7 @@ public class zItem : MonoBehaviour
     public void Attacked(float Hurt, Transform AttackPoint)
     {
         if (!isReceiveHurt) { return; }
+        Debug.Log("是否接受伤害"+isReceiveHurt);
         //Debug.Log("受到" + Hurt + "伤害");
         Debug.Log(transform.name + "被攻击了" + "受到" + Hurt + "伤害");
         _Heath -= Hurt;
@@ -90,8 +90,7 @@ public class zItem : MonoBehaviour
             int de = AttackPoint.position.x - transform.position.x > 0 ? 1 : -1;
             if (AttackedForce > 0 && _rigidbody2D)
                 _rigidbody2D.AddForce(Vector2.left*de * AttackedForce);
-
-            _Heath -= Hurt;
+            //_Heath -= Hurt;
         }
     }
 

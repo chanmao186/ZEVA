@@ -26,12 +26,21 @@ public class CanmeraMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        UpdateTarget();
         targetPos = target.position;
         NewPos = new Vector3(0, 0, -10);
     }
 
+    private void UpdateTarget()
+    {
+        if (target == null)
+        {
+            target = GameObject.FindObjectOfType<zPlayer>().transform;
+        }
+    }
     private void Move()
     {
+        UpdateTarget();
         targetPos = target.position;
         targetPos.x += OffX;
         targetPos.y += OffY;

@@ -6,33 +6,45 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/QingFeng/QingFeng/Scenes/Card_1_Map_1.unity
+    path: Assets/QingFeng/Scenes/Init.unity
+    guid: 154d59b3905a8f84684aed93a5b2f66f
+  - enabled: 1
+    path: Assets/QingFeng/Scenes/Card_1_Map_1.unity
     guid: 67c85651c92446f46974efa5d62673e8
   - enabled: 1
-    path: Assets/QingFeng/QingFeng/Scenes/Card_1_Map_2.unity
+    path: Assets/QingFeng/Scenes/Card_1_Map_2.unity
     guid: b5d14f2739a4eef43a44da37c0af08fd
   - enabled: 1
-    path: Assets/QingFeng/QingFeng/Scenes/Card_1_Map_3.unity
+    path: Assets/QingFeng/Scenes/Card_1_Map_3.unity
     guid: edbbb40da7333214fa92baf21bf36d65
   - enabled: 1
-    path: Assets/QingFeng/QingFeng/Scenes/Card_1_Map_4.unity
+    path: Assets/QingFeng/Scenes/Card_1_Map_4.unity
     guid: bf97cd749ddd0844daee649e73c80973
   - enabled: 1
-    path: Assets/QingFeng/QingFeng/Scenes/Card_1_Map_5.unity
+    path: Assets/QingFeng/Scenes/Card_1_Map_5.unity
     guid: 35fdfaf6490903449819426fa284ae3c
   - enabled: 1
-    path: Assets/QingFeng/QingFeng/Scenes/Card_2_Map_1.unity
+    path: Assets/QingFeng/Scenes/Card_2_Map_1.unity
     guid: 8bf0599ccf07bd842b5a1c3cc243acc3
   - enabled: 1
-    path: Assets/QingFeng/QingFeng/Scenes/Card_2_Map_2.unity
+    path: Assets/QingFeng/Scenes/GameEnd.unity
+    guid: 0d96221ceb8d4274490c0098e7e912de
+  - enabled: 1
+    path: Assets/QingFeng/Scenes/Card_3_Map_1.unity
+    guid: bd40c9f6c3d3f3b4190d56c051167b11
+  - enabled: 1
+    path: Assets/QingFeng/Scenes/Card_1_Map_7.unity
+    guid: 9254d008992994b4491f00c9891879b0
+  - enabled: 1
+    path: Assets/QingFeng/Scenes/Card_1_Map_6.unity
+    guid: d65325aa1b6663d4ebff91fa2c325ec0
+  - enabled: 1
+    path: Assets/QingFeng/Scenes/Card_2_Map_2.unity
     guid: 5d6e4070da4b7ba4ca044729f60af8b6
   - enabled: 1
-    path: Assets/QingFeng/QingFeng/Scenes/Card_2_Map_3.unity
+    path: Assets/QingFeng/Scenes/Card_2_Map_3.unity
     guid: ad986263338c3574ebd394087cd38585
   - enabled: 1
-    path: Assets/QingFeng/QingFeng/Scenes/Card_2_Map_4.unity
+    path: Assets/QingFeng/Scenes/Card_2_Map_4.unity
     guid: c960b564fcb25e7499bd81ae5fac7f09
-  - enabled: 1
-    path: Assets/QingFeng/QingFeng/Scenes/Init.unity
-    guid: 154d59b3905a8f84684aed93a5b2f66f
   m_configObjects: {}

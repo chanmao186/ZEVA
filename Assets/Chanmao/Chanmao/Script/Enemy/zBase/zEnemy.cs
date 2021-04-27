@@ -8,11 +8,11 @@ using UnityEngine.Serialization;
 
 public enum EnemyState
 {
-    Idle, Patrol, Pursue, Return, Death,Ability
+    Idle, Patrol, Pursue, Return, Death, Ability
 }
 
 public class zEnemy : CCharacter
-{  
+{
     [Header("死后销毁时间(为0时不销毁)")]
     public float DestroyTime = 3f;
 
@@ -25,7 +25,7 @@ public class zEnemy : CCharacter
 
     protected float _AbilityTime = 0;
 
-    protected zEnemyController zec;
+
 
     /// <summary>
     /// 是否启用状态转换机
@@ -39,7 +39,7 @@ public class zEnemy : CCharacter
         //isCanChangState= true;
         Direction = 1;
         Player = FindObjectOfType<zPlayer>().transform;
-        zec = GetComponent<zEnemyController>();
+
         //Debug.Log("zEnemy执行");
     }
 
@@ -53,22 +53,21 @@ public class zEnemy : CCharacter
     protected override void DeathEffection()
     {
         base.DeathEffection();
-        if(zec)
-        zec.EnemtCount();
 
         Debug.Log("不对玩家造成伤害");
         //不在对玩家造成伤害
         if (GetComponent<zHurt>())
         {
-            _rigidbody2D.gravityScale = 0;
+            if (_rigidbody2D)
+                _rigidbody2D.gravityScale = 0;
             GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<zHurt>().enabled = false;
         }
 
-        zc.zTime.ScheduleOnce(() => {
-            Destroy(gameObject);
-        }, 0.5f);
+
+        Destroy(gameObject, 0.05f);
+
     }
 
-    
+
 }

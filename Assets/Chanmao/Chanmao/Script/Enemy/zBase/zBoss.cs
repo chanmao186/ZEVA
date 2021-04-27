@@ -121,6 +121,8 @@ public class zBoss : zEnemy
         base.DeathEffection();
         Debug.Log("boss死亡，停止更新动作");
         CurrentState = EnemyState.Death;
+
+        
         //zc.zTime.StopSchedule(_time);
         //主角不在受伤
         //Player.GetComponent<zPlayer>().SetReciveHurtState(false);

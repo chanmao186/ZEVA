@@ -18,7 +18,7 @@ public class zBuff : MonoBehaviour
         {
             Player.SetSliceDistance(7);
 
-            Destroy(gameObject, 0.5f);
+            Destroy(gameObject);
         }
     }
 }

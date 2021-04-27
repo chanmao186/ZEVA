@@ -185,4 +185,12 @@ public class zSelf : zBoss
     {
         SetSliceOrignPos(point.position);
     }
+
+
+    protected override void DeathEffection()
+    {
+        base.DeathEffection();
+
+        UIManager.Instance.GameEnd();
+    }
 }

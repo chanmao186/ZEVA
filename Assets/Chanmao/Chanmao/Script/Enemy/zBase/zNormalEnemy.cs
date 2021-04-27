@@ -27,7 +27,7 @@ public class zNormalEnemy : zEnemy
 
     protected Transform CurrentPiont;
 
-
+    protected zEnemyController zec;
     protected int _TargetPointIndex;
     protected int _TargetPointLength;
 
@@ -38,11 +38,11 @@ public class zNormalEnemy : zEnemy
         //isCanChangState= true;
         Direction = 1;
         CurrentState = DefaultState;
-        Debug.Log(CurrentState);
+        //Debug.Log(CurrentState);
         //获取巡逻点的信息
         _TargetPointLength = PatrolPoint.Length;
         _TargetPointIndex = 0;
-
+        zec = zc.GetComponent<zEnemyController>();
         //Debug.Log("zEnemy执行");
     }
 
@@ -62,6 +62,13 @@ public class zNormalEnemy : zEnemy
     public override void Death()
     {
         base.Death();
+
+        Debug.Log(zec);
+        if (zec)
+        {           
+            zec.EnemtCount();
+        }
+            
         if (CurrentState == EnemyState.Death) return;
         CurrentState = EnemyState.Death;
         Destroy(this.gameObject, DestroyTime);

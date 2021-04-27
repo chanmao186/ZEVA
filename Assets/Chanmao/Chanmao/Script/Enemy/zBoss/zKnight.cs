@@ -138,8 +138,10 @@ public class zKnight : zBoss
     protected override void DeathEffection()
     {
         base.DeathEffection();
-        Debug.Log("boss死亡，停止更新动作");
+        //Debug.Log("boss死亡，停止更新动作");
         CurrentState = EnemyState.Death;
+
+        UIManager.Instance.UnlockDoor();
     }
 
 }

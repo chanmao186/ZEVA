@@ -159,4 +159,10 @@ public class zMaster : zBoss
             a2.GetComponent<zMashterA2>().Rush(A3FlySpeed);
         },A3PreTime);
     }
+
+    protected override void DeathEffection()
+    {
+        base.DeathEffection();
+        UIManager.Instance.UnlockDoor();
+    }
 }
